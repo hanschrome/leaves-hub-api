@@ -19,7 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/v1/user-access/register', function(Request $request) {
+Route::get('/v1/ping', function () {
+    return ['PONG'];
+});
+
+Route::post('/v1/user-access/register', function(Request $request) {
     $registerUserAction = new RegisterUserAction();
 
     return $registerUserAction()->toArray();

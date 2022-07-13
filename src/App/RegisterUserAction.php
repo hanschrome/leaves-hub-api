@@ -11,6 +11,8 @@ class RegisterUserAction
 {
     public function __invoke(): IResponse
     {
+
+
         return new RegisterUserResponse(null, true);
     }
 }
