@@ -6,6 +6,7 @@ namespace Src\Domain\User\Properties\UserEmail;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
+use Src\Domain\User\Properties\UserEmail\Validators\UserEmailRegexPropertyValidator\UserEmailRegexPropertyValidator;
 
 class UserEmail extends AbstractProperty implements IUserEmail, IProperty
 {
@@ -21,11 +22,12 @@ class UserEmail extends AbstractProperty implements IUserEmail, IProperty
     public function sanitize(): void
     {
         $this->email = trim($this->email);
+        $this->email = strtolower($this->email);
     }
 
     public function validate(): void
     {
-        // $this->addValidator(null);
+        $this->addValidator(new UserEmailRegexPropertyValidator($this));
         $this->executeValidators();
     }
 
