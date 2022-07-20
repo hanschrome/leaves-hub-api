@@ -2,34 +2,35 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\User\Properties;
+namespace Src\Domain\User\Properties\UserEmail;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
 
-class UserId extends AbstractProperty implements IProperty, IUserId
+class UserEmail extends AbstractProperty implements IUserEmail, IProperty
 {
-    private string $userId;
+    private string $email;
 
-    public function __construct(string $userId)
+    public function __construct(string $email)
     {
-        $this->userId = $userId;
+        $this->email = $email;
         $this->sanitize();
         $this->validate();
     }
 
     public function sanitize(): void
     {
-        $this->userId = trim($this->userId);
+        $this->email = trim($this->email);
     }
 
     public function validate(): void
     {
+        // $this->addValidator(null);
         $this->executeValidators();
     }
 
     public function value(): string
     {
-        return $this->userId;
+        return $this->email;
     }
 }
