@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Src\Domain\User;
 
+use App\Models\UserEloquentModel;
 use Src\Domain\User\Properties\IUserId;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
+use Src\Domain\User\Properties\UserEmail\UserEmail;
+use Src\Domain\User\Properties\UserId;
 
 class User implements IUser
 {
@@ -28,4 +31,8 @@ class User implements IUser
         return $this->email;
     }
 
+    public static function fromEloquentModel(UserEloquentModel $userEloquentModel): static
+    {
+        return new static(new UserId($userEloquentModel->uuid), new UserEmail($userEloquentModel->email));
+    }
 }

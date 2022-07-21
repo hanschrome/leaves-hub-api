@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Infrastructure\Repositories\User;
 
+use App\Models\UserEloquentModel;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
@@ -15,11 +16,14 @@ class UserRepository implements IUserRepository
 {
     public function findUserByEmail(IUserEmail $userEmail): IUser
     {
-        return new User(new UserId('absdfsad-asdad-asdasd-asdasd'), new UserEmail('test@test.com'));
+        $eloquentUser = UserEloquentModel::all(['email' => $userEmail->value()])->first();
+
+        return User::fromEloquentModel($eloquentUser);
     }
 
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
+
         return new User(new UserId('absdfsad-asdad-asdasd-asdasd'), new UserEmail('test@test.com'));
     }
 }

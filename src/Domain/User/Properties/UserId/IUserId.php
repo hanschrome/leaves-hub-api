@@ -7,4 +7,6 @@ namespace Src\Domain\User\Properties;
 interface IUserId
 {
     public function __construct(string $userId);
+
+    public function value(): string;
 }

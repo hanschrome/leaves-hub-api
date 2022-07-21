@@ -7,4 +7,6 @@ namespace Src\Domain\User\Properties\UserEmail;
 interface IUserEmail
 {
     public function __construct(string $email);
+
+    public function value(): string;
 }
