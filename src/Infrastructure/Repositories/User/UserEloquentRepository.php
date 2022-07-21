@@ -8,7 +8,6 @@ use App\Models\UserEloquentModel;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
-use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserId;
 use Src\Domain\User\User;
 
@@ -21,6 +20,9 @@ class UserEloquentRepository implements IUserRepository
         return User::fromEloquentModel($eloquentUser);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
         $user = new User(new UserId(''), $userEmail);
