@@ -30,6 +30,7 @@ class UserEloquentRepository implements IUserRepository
         $userEloquent = new UserEloquentModel();
         $userEloquent->uuid = $user->getId()->value();
         $userEloquent->email = $user->getEmail()->value();
+        $userEloquent->verify_token = '';
 
         if(!$userEloquent->save()) {
             throw new \Exception();

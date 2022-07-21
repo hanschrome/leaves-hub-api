@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property int $email_verified_at
  * @property string $password
+ * @property string verify_token
  * @property int $updated_at;
  * @property int $created_at;
  */
