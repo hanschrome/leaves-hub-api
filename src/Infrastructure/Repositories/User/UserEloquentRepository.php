@@ -12,7 +12,7 @@ use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserId;
 use Src\Domain\User\User;
 
-class UserRepository implements IUserRepository
+class UserEloquentRepository implements IUserRepository
 {
     public function findUserByEmail(IUserEmail $userEmail): IUser
     {
@@ -23,7 +23,16 @@ class UserRepository implements IUserRepository
 
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
+        $user = new User(new UserId(''), $userEmail);
 
-        return new User(new UserId('absdfsad-asdad-asdasd-asdasd'), new UserEmail('test@test.com'));
+        $userEloquent = new UserEloquentModel();
+        $userEloquent->uuid = $user->getId()->value();
+        $userEloquent->email = $user->getEmail()->value();
+
+        if(!$userEloquent->save()) {
+            throw new \Exception();
+        }
+
+        return $user;
     }
 }
