@@ -16,7 +16,7 @@ class MailingConfiguration
     private string $username;
     private string $password;
 
-    const SMTP_SECURE_ENUM = ['tls'];
+    const SMTP_SECURE_ENUM = ['tls', 'ssl'];
 
     /**
      * @param bool $smtpDebug
