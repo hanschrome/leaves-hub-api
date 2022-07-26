@@ -8,8 +8,10 @@ use App\Models\UserEloquentModel;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
+use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserId;
 use Src\Domain\User\User;
+use Src\Infrastructure\Repositories\User\Exceptions\UserNotSavedException\UserNotSavedException;
 
 class UserEloquentRepository implements IUserRepository
 {
@@ -17,7 +19,7 @@ class UserEloquentRepository implements IUserRepository
     {
         $eloquentUser = UserEloquentModel::all(['email' => $userEmail->value()])->first();
 
-        return User::fromEloquentModel($eloquentUser);
+        return new User(new UserId($eloquentUser->uuid), new UserEmail($eloquentUser->email));
     }
 
     /**
@@ -33,7 +35,7 @@ class UserEloquentRepository implements IUserRepository
         $userEloquent->verify_token = '';
 
         if(!$userEloquent->save()) {
-            throw new \Exception();
+            throw new UserNotSavedException();
         }
 
         return $user;

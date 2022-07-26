@@ -30,9 +30,4 @@ class User implements IUser
     {
         return $this->email;
     }
-
-    public static function fromEloquentModel(UserEloquentModel $userEloquentModel): static
-    {
-        return new static(new UserId($userEloquentModel->uuid), new UserEmail($userEloquentModel->email));
-    }
 }
