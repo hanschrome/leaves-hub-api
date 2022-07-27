@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Src\Infrastructure\Repositories\User;
 
 use App\Models\UserEloquentModel;
+use Exception;
 use Ramsey\Uuid\Uuid;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
@@ -25,7 +26,7 @@ class UserEloquentRepository implements IUserRepository
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
