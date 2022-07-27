@@ -25,7 +25,7 @@ class RegisterUserAction
 
         try {
             $success = $this->iUserRegistrationService->registerUserByEmail(new UserEmail($emailRawRequest));
-        } catch (\Throwable) {
+        } catch (\Throwable) { // please better error catching :laugh
             $success = false;
             // @todo
         }
