@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Src\Domain\Properties\User\Properties\UserEmailVerifiedAt\Validators;
 
-use Src\Domain\Validators\Exceptions\IPropertyException;
+use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeException;
 
-class UserVerifiedAtTimestampPropertyWrongRangeException extends \Exception implements IPropertyException
+class UserVerifiedAtTimestampPropertyWrongRangeException extends TimestampPropertyRangeException
 {
-
 }
