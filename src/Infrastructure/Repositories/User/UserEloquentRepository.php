@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Src\Infrastructure\Repositories\User;
 
 use App\Models\UserEloquentModel;
+use Ramsey\Uuid\Uuid;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
@@ -27,12 +28,12 @@ class UserEloquentRepository implements IUserRepository
      */
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
-        $user = new User(new UserId(''), $userEmail);
+        $user = new User(new UserId(Uuid::uuid4()->toString()), $userEmail);
 
         $userEloquent = new UserEloquentModel();
         $userEloquent->uuid = $user->getId()->value();
         $userEloquent->email = $user->getEmail()->value();
-        $userEloquent->verify_token = '';
+        $userEloquent->verify_token = Uuid::uuid4()->toString();
 
         if(!$userEloquent->save()) {
             throw new UserNotSavedException();
