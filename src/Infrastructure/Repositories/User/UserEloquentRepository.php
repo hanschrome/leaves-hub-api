@@ -18,6 +18,7 @@ class UserEloquentRepository implements IUserRepository
 {
     public function findUserByEmail(IUserEmail $userEmail): IUser
     {
+        /** @var UserEloquentModel $eloquentUser */
         $eloquentUser = UserEloquentModel::all(['email' => $userEmail->value()])->first();
 
         return new User(new UserId($eloquentUser->uuid), new UserEmail($eloquentUser->email));
