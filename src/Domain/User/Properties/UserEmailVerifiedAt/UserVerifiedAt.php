@@ -10,9 +10,9 @@ use Src\Domain\Properties\User\Properties\UserEmailVerifiedAt\Validators\UserVer
 
 class UserVerifiedAt extends AbstractProperty implements IProperty, IUserVerifiedAt
 {
-    private int $userVerifiedAt;
+    private ?int $userVerifiedAt;
 
-    public function __construct(int $userVerifiedAt)
+    public function __construct(?int $userVerifiedAt = null)
     {
         $this->userVerifiedAt = $userVerifiedAt;
     }
@@ -25,10 +25,10 @@ class UserVerifiedAt extends AbstractProperty implements IProperty, IUserVerifie
     public function validate(): void
     {
         $this->addValidator(new UserVerifiedAtTimestampPropertyValidator($this));
-        $this->validate();
+        $this->executeValidators();
     }
 
-    public function value(): int
+    public function value(): ?int
     {
         $this->userVerifiedAt;
     }

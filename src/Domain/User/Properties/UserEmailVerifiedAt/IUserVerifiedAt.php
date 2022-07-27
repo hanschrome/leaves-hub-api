@@ -6,7 +6,7 @@ namespace Src\Domain\User\Properties\UserEmailVerifiedAt;
 
 interface IUserVerifiedAt
 {
-    public function __construct(int $userVerifiedAt);
+    public function __construct(?int $userVerifiedAt);
 
-    public function value(): int;
+    public function value(): ?int;
 }
