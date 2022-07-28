@@ -15,6 +15,8 @@ class UserCreatedAt extends AbstractTimestampProperty implements IProperty, IUse
     public function __construct(?int $timestamp)
     {
         $this->timestamp = $timestamp;
+        $this->sanitize();
+        $this->validate();
     }
 
     public function sanitize(): void

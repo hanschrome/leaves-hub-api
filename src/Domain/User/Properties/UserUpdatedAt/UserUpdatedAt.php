@@ -15,6 +15,8 @@ class UserUpdatedAt extends AbstractTimestampProperty implements IProperty, IUse
     public function __construct(?int $timestamp = null)
     {
         $this->timestamp = $timestamp;
+        $this->sanitize();
+        $this->validate();
     }
 
     public function sanitize(): void

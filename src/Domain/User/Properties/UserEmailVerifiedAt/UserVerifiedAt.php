@@ -15,6 +15,8 @@ class UserVerifiedAt extends AbstractTimestampProperty implements IProperty, IUs
     public function __construct(?int $userVerifiedAt = null)
     {
         $this->userVerifiedAt = $userVerifiedAt;
+        $this->sanitize();
+        $this->validate();
     }
 
     public function sanitize(): void
