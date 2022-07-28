@@ -10,7 +10,7 @@ use Src\Domain\Validators\IPropertyValidator;
 
 class TimestampPropertyRangeValidator implements IPropertyValidator
 {
-    private IProperty $property;
+    protected IProperty $property;
 
     public function __construct(IProperty $property)
     {

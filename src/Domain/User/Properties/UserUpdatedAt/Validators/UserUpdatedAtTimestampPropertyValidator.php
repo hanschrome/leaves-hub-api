@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\Properties\User\Properties\UserEmailVerifiedAt\Validators;
+namespace Src\Domain\User\Properties\UserUpdatedAt\Validators;
 
 use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
 
-class UserVerifiedAtTimestampPropertyValidator extends TimestampPropertyRangeValidator
+class UserUpdatedAtTimestampPropertyValidator extends TimestampPropertyRangeValidator
 {
     /**
-     * @throws UserVerifiedAtTimestampPropertyWrongRangeException
+     * @throws UserUpdatedAtTimestampPropertyWrongRangeException
      */
     public function validate(): void
     {
         if ($this->property->value() <= 0 || $this->property->value() > now()) {
-            throw new UserVerifiedAtTimestampPropertyWrongRangeException(
+            throw new UserUpdatedAtTimestampPropertyWrongRangeException(
                 'Property ' . get_class($this->property) . ' is out of range: (' . $this->property->value() . ')'
             );
         }

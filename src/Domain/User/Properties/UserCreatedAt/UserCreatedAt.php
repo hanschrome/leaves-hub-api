@@ -6,6 +6,7 @@ namespace Src\Domain\User\Properties\UserCreatedAt;
 
 use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;
+use Src\Domain\User\Properties\UserCreatedAt\Validators\UserCreatedAtTimestampPropertyValidator;
 
 class UserCreatedAt extends AbstractTimestampProperty implements IProperty, IUserCreatedAt
 {
@@ -19,6 +20,12 @@ class UserCreatedAt extends AbstractTimestampProperty implements IProperty, IUse
     public function sanitize(): void
     {
         // --
+    }
+
+    public function validate(): void
+    {
+        $this->addValidator(new UserCreatedAtTimestampPropertyValidator($this));
+        $this->executeValidators();
     }
 
     public function value(): int
