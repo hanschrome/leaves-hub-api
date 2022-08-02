@@ -9,6 +9,7 @@ use Src\Domain\User\Properties\UserCreatedAt\IUserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\IUserVerifiedAt;
 use Src\Domain\User\Properties\UserPassword\IUserPassword;
+use Src\Domain\User\Properties\UserStatus\IUserStatus;
 use Src\Domain\User\Properties\UserUpdatedAt\IUserUpdatedAt;
 use Src\Domain\User\Properties\UserVerifyToken\IUserVerifyToken;
 
@@ -18,6 +19,7 @@ interface IUser
         IUserId $userId,
         IUserEmail $userEmail,
         IUserVerifiedAt $emailVerifiedAt,
+        IUserStatus $userStatus,
         IUserPassword $userPassword,
         IUserVerifyToken $userVerifyToken,
         IUserUpdatedAt $userUpdatedAt,
@@ -28,7 +30,9 @@ interface IUser
 
     public function getEmail(): IUserEmail;
 
-    public function getEmailVerifiedAt(): IUserVerifiedAt;
+    public function getVerifiedAt(): IUserVerifiedAt;
+
+    public function getStatus(): IUserStatus;
 
     public function getPassword(): IUserPassword;
 
