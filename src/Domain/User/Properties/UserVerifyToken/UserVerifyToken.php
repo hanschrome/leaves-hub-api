@@ -6,10 +6,18 @@ namespace Src\Domain\User\Properties\UserVerifyToken;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
+use Src\Domain\User\Properties\UserVerifyToken\Validators\Uuid\UserVerifyTokenPropertyValidator;
 
 class UserVerifyToken extends AbstractProperty implements IProperty, IUserVerifyToken
 {
     private string $value;
+
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+        $this->sanitize();
+        $this->validate();
+    }
 
     public function sanitize(): void
     {
@@ -18,11 +26,12 @@ class UserVerifyToken extends AbstractProperty implements IProperty, IUserVerify
 
     public function validate(): void
     {
-        // TODO: Implement validate() method.
+        $this->addValidator(new UserVerifyTokenPropertyValidator($this));
+        $this->executeValidators();
     }
 
-    public function value(): mixed
+    public function value(): string
     {
-        // TODO: Implement value() method.
+        return $this->value;
     }
 }

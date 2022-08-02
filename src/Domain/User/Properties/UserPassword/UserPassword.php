@@ -6,6 +6,7 @@ namespace Src\Domain\User\Properties\UserPassword;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
+use Src\Domain\User\Properties\UserPassword\Validators\UserPasswordHasPropertyValidator\UserPasswordHashPropertyValidator;
 
 class UserPassword extends AbstractProperty implements IProperty, IUserPassword
 {
@@ -25,7 +26,8 @@ class UserPassword extends AbstractProperty implements IProperty, IUserPassword
 
     public function validate(): void
     {
-        // TODO: Implement validate() method.
+        $this->addValidator(new UserPasswordHashPropertyValidator($this));
+        $this->executeValidators();
     }
 
     public function value(): string

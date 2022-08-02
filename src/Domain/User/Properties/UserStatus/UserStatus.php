@@ -25,6 +25,8 @@ class UserStatus extends AbstractProperty implements IProperty, IUserStatus
     public function __construct(int $value)
     {
         $this->value = $value;
+        $this->sanitize();
+        $this->validate();
     }
 
     public function sanitize(): void {}
