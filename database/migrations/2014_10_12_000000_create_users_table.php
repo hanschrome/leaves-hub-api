@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->integer('status');
             $table->string('password')->nullable();
             $table->string('verify_token')->nullable();
             $table->timestamps();

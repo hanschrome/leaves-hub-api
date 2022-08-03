@@ -6,4 +6,5 @@ namespace Src\Domain\User\Properties\UserCreatedAt;
 
 interface IUserCreatedAt
 {
+    public function value(): int;
 }

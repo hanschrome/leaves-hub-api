@@ -6,5 +6,5 @@ namespace Src\Domain\User\Properties\UserVerifyToken;
 
 interface IUserVerifyToken
 {
-
+    public function value(): string;
 }

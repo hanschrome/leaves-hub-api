@@ -6,5 +6,5 @@ namespace Src\Domain\User\Properties\UserUpdatedAt;
 
 interface IUserUpdatedAt
 {
-
+    public function value(): int;
 }

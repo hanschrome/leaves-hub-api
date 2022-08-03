@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $uuid
  * @property string $email
+ * @property int $status
  * @property ?int $email_verified_at
  * @property ?string $password
  * @property ?string verify_token
