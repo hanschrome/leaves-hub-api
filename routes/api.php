@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Src\App\RegisterUserAction;
+use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
+use Src\Infrastructure\Mailing\MailingConfiguration;
+use Src\Infrastructure\Mailing\MailingService;
+use Src\Infrastructure\Repositories\User\UserEloquentRepository;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +28,22 @@ Route::get('/v1/ping', function () {
 });
 
 Route::post('/v1/user-access/register', function(Request $request) {
-    $registerUserAction = new RegisterUserAction($request->json());
+    $registerUserAction = new RegisterUserAction(
+        new UserRegistrationService(
+            new UserEloquentRepository(),
+            new MailingService(
+                new MailingConfiguration(
+                    false,
+                    true,
+                    config('mail.mailers')['smtp']['encryption'],
+                    config('mail.mailers')['smtp']['port'],
+                    config('mail.mailers')['smtp']['host'],
+                    config('mail.mailers')['smtp']['username'],
+                    config('mail.mailers')['smtp']['password']
+                )
+            )
+        )
+    );
 
-    return $registerUserAction()->toArray();
+    return $registerUserAction($request->json())->toArray();
 });
