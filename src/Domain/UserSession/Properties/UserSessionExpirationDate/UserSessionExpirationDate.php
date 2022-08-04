@@ -6,6 +6,7 @@ namespace Src\Domain\USerSession\Properties\UserSessionExpirationDate;
 
 use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;
+use Src\Domain\UserSession\Properties\UserSessionCreatedAt\Validators\UserSessionCreatedAt\UserSessionCreatedAtTimestampValidator;
 
 class UserSessionExpirationDate extends AbstractTimestampProperty implements IProperty, IUserSessionExpirationDate
 {
@@ -23,7 +24,8 @@ class UserSessionExpirationDate extends AbstractTimestampProperty implements IPr
 
     public function validate(): void
     {
-
+        $this->addValidator(new UserSessionCreatedAtTimestampValidator($this));
+        $this->executeValidators();
     }
 
     public function value(): ?int
