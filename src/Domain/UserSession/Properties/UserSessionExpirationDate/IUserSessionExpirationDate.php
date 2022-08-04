@@ -6,5 +6,5 @@ namespace Src\Domain\USerSession\Properties\UserSessionExpirationDate;
 
 interface IUserSessionExpirationDate
 {
-    public function value(): int;
+    public function value(): ?int;
 }
