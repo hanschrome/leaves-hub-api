@@ -6,5 +6,5 @@ namespace Src\Domain\UserSession\Properties\UserSessionUpdatedAt;
 
 interface IUserSessionUpdatedAt
 {
-    public function value(): int;
+    public function value(): ?int;
 }
