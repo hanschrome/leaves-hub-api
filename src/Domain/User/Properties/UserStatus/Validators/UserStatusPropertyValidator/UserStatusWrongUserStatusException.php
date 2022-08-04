@@ -7,7 +7,7 @@ namespace Src\Domain\User\Properties\UserStatus\Validators\UserStatusPropertyVal
 use Src\Domain\Validators\Exceptions\IPropertyException;
 use Exception;
 
-class UserStatusWrongUserStatus extends Exception implements IPropertyException
+class UserStatusWrongUserStatusException extends Exception implements IPropertyException
 {
 
 }

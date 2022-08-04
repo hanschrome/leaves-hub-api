@@ -18,12 +18,12 @@ class UserStatusPropertyValidator implements IPropertyValidator
     }
 
     /**
-     * @throws UserStatusWrongUserStatus
+     * @throws UserStatusWrongUserStatusException
      */
     public function validate(): void
     {
         if (!in_array($this->property->value(), UserStatus::ALL)) {
-            throw new UserStatusWrongUserStatus();
+            throw new UserStatusWrongUserStatusException();
         }
     }
 }
