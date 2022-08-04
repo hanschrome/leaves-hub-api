@@ -8,5 +8,15 @@ use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
 
 class UserSessionCreatedAtTimestampValidator extends TimestampPropertyRangeValidator
 {
-
+    /**
+     * @throws UserSessionCreatedAtWrongTimestampException
+     */
+    public function validate(): void
+    {
+        if ($this->property->value() <= 0 || $this->property->value() > now()) {
+            throw new UserSessionCreatedAtWrongTimestampException(
+                'Property ' . get_class($this->property) . ' is out of range: (' . $this->property->value() . ')'
+            );
+        }
+    }
 }
