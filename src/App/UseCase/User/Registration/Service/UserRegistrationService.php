@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Src\App\UseCase\User\Registration\Service;
 
+use Src\App\UseCase\User\Registration\Exception\RegisterUserActionNotVerifiedUserIntentException;
+use Src\App\UseCase\User\Registration\Exception\RegisterUserActionVerifiedUserIntentException;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Services\IUserRegistrationService;
@@ -23,24 +25,25 @@ class UserRegistrationService implements IUserRegistrationService
         $this->mailingService = $mailingService;
     }
 
-    public function registerUserByEmail(IUserEmail $userEmail): bool
+    /**
+     * @throws RegisterUserActionVerifiedUserIntentException
+     * @throws RegisterUserActionNotVerifiedUserIntentException
+     */
+    public function registerUserByEmail(IUserEmail $userEmail): void
     {
         $user = $this->userRepository->findUserByEmail($userEmail);
 
         if ($user !== null) {
-            /**
-             * @todo
-             * - Check if it's validated
-             * - In case of not, offer to resend a confirmation email
-             */
-            return false;
+            if ($user->getVerifiedAt() !== null) {
+                throw new RegisterUserActionVerifiedUserIntentException();
+            } else {
+                throw new RegisterUserActionNotVerifiedUserIntentException();
+            }
         }
 
         $unsignedUser = $this->userRepository->createUnsignedUserByEmail($userEmail);
 
         $this->sendUserEmail($unsignedUser->getEmail());
-
-        return true;
     }
 
     private function sendUserEmail(IUserEmail $userEmail): void
