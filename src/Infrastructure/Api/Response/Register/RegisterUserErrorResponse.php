@@ -17,7 +17,7 @@ class RegisterUserErrorResponse implements IResponse
         self::KEY_RESPONSE_NOT_VERIFIED_USER_INTENT,
         self::KEY_RESPONSE_VERIFIED_USER_INTENT,
         self::KEY_RESPONSE_INTERNAL_ERROR
-    ]
+    ];
 
     private ?int $errorCode;
     private string $keyResponse;
