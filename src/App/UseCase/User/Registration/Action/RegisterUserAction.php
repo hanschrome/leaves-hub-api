@@ -12,6 +12,7 @@ use Src\Infrastructure\Api\Response\IResponse;
 use Src\Infrastructure\Api\Response\Register\RegisterUserErrorResponse;
 use Src\Infrastructure\Api\Response\RegisterUserResponse;
 use Exception;
+use Throwable;
 
 class RegisterUserAction
 {
@@ -27,10 +28,10 @@ class RegisterUserAction
      */
     public function __invoke(array $requestJsonBody): IResponse
     {
-        $captchaToken = $requestJsonBody['captchaToken'];
+        // $captchaToken = $requestJsonBody['captchaToken'];
         $emailRawRequest = $requestJsonBody['email'];
         $response = new RegisterUserResponse(null, true);
-º
+
         try {
             $this->iUserRegistrationService->registerUserByEmail(new UserEmail($emailRawRequest));
         } catch (RegisterUserActionNotVerifiedUserIntentException $exception) {
@@ -45,7 +46,7 @@ class RegisterUserAction
                 RegisterUserErrorResponse::KEY_RESPONSE_VERIFIED_USER_INTENT,
                 false
             );
-        } catch (\Throwable $throwable) { // please better error catching :laugh
+        } catch (Throwable $throwable) { // please better error catching :laugh
             $response = new RegisterUserErrorResponse(
                 500,
                 RegisterUserErrorResponse::KEY_RESPONSE_INTERNAL_ERROR,
