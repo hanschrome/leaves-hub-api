@@ -11,6 +11,7 @@ use Src\Domain\User\Services\IUserRegistrationService;
 use Src\Infrastructure\Api\Response\IResponse;
 use Src\Infrastructure\Api\Response\Register\RegisterUserErrorResponse;
 use Src\Infrastructure\Api\Response\RegisterUserResponse;
+use Exception;
 
 class RegisterUserAction
 {
@@ -21,6 +22,9 @@ class RegisterUserAction
         $this->iUserRegistrationService = $iUserRegistrationService;
     }
 
+    /**
+     * @throws Exception
+     */
     public function __invoke(array $requestJsonBody): IResponse
     {
         $captchaToken = $requestJsonBody['captchaToken'];
