@@ -46,7 +46,7 @@ class RegisterUserAction
                 RegisterUserErrorResponse::KEY_RESPONSE_VERIFIED_USER_INTENT,
                 false
             );
-        } catch (Throwable $throwable) { // please better error catching :laugh
+        } catch (Throwable $throwable) {
             $response = new RegisterUserErrorResponse(
                 500,
                 RegisterUserErrorResponse::KEY_RESPONSE_INTERNAL_ERROR,
