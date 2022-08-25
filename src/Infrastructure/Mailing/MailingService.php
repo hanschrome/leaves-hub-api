@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Infrastructure\Mailing;
 
+use Monolog\Logger;
 use PHPMailer\PHPMailer\PHPMailer;
 use Src\Domain\User\IUser;
 use Throwable;
@@ -49,6 +50,8 @@ class MailingService implements IMailingService
             $success = true;
         } catch (Throwable $e) {
             $success = false;
+            (new Logger('Mailing'))->addRecord(Logger::ERROR, $e->getMessage(), ['MailingService error']);
+            echo '@todo log ' . $e->getMessage();
         }
 
         return $success;
