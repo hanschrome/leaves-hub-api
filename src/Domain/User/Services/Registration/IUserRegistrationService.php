@@ -14,5 +14,5 @@ interface IUserRegistrationService
      * @throws RegisterUserActionVerifiedUserIntentException
      * @throws RegisterUserActionNotVerifiedUserIntentException
      */
-    public function registerUserByEmail(IUserEmail $userEmail): bool;
+    public function registerUserByEmail(IUserEmail $userEmail): void;
 }

@@ -59,7 +59,7 @@ class UserRegistrationService implements IUserRegistrationService
         )
         ) {
             // don't to throw exception, this is not an actual error. We should try to send it several times in a queue
-            // and when the max_tries is reached, set as job failed. --> I think rabbitmq will help a lot of here ))
+            // and when the max_tries is reached, set as job failed. --> I think rabbitmq will help a lot of here
         }
     }
 }
