@@ -39,7 +39,9 @@ Route::post('/v1/user-access/register', function(Request $request) {
                     config('mail.mailers')['smtp']['port'],
                     config('mail.mailers')['smtp']['host'],
                     config('mail.mailers')['smtp']['username'],
-                    config('mail.mailers')['smtp']['password']
+                    config('mail.mailers')['smtp']['password'],
+                    config('mail.from')['address'],
+                    config('mail.from')['name']
                 )
             )
         )

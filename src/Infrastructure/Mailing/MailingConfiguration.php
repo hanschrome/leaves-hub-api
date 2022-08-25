@@ -15,22 +15,27 @@ class MailingConfiguration
     private string $host;
     private string $username;
     private string $password;
+    private string $fromMail;
+    private string $fromName;
 
     const SMTP_SECURE_ENUM = [self::SMTP_SECURE_TLS, self::SMTP_SECURE_SSL];
     const SMTP_SECURE_TLS = 'tls';
     const SMTP_SECURE_SSL = 'ssl';
 
     /**
-     * @param bool $smtpDebug
-     * @param bool $smtpAuth
-     * @param string $smtpSecure
-     * @param int $port
-     * @param string $host
-     * @param string $username
-     * @param string $password
      * @throws Exception
      */
-    public function __construct(bool $smtpDebug, bool $smtpAuth, string $smtpSecure, int $port, string $host, string $username, string $password)
+    public function __construct(
+        bool $smtpDebug,
+        bool $smtpAuth,
+        string $smtpSecure,
+        int $port,
+        string $host,
+        string $username,
+        string $password,
+        string $fromMail,
+        string $fromName
+    )
     {
         $this->smtpDebug = $smtpDebug;
         $this->smtpAuth = $smtpAuth;
@@ -39,6 +44,8 @@ class MailingConfiguration
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
+        $this->fromMail = $fromMail;
+        $this->fromName = $fromName;
 
         $this->validate();
     }
@@ -86,5 +93,15 @@ class MailingConfiguration
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    public function getFromMail(): string
+    {
+        return $this->fromMail;
+    }
+
+    public function getFromName(): string
+    {
+        return $this->fromName;
     }
 }
