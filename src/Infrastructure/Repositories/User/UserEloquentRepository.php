@@ -9,6 +9,7 @@ use Exception;
 use Ramsey\Uuid\Uuid;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
+use Src\Domain\User\Properties\IUserId;
 use Src\Domain\User\Properties\UserCreatedAt\UserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
@@ -24,6 +25,23 @@ use Src\Infrastructure\Repositories\User\Exceptions\UserNotSavedException\UserNo
 
 class UserEloquentRepository implements IUserRepository
 {
+    public function findUserById(IUserId $userId): IUser
+    {
+        /** @var UserEloquentModel $eloquentUser */
+        $eloquentUser = UserEloquentModel::all(['uuid' => $userId->value()])->first();
+
+        return new User(
+            new UserId($eloquentUser->uuid),
+            new UserEmail($eloquentUser->email),
+            new UserVerifiedAt($eloquentUser->email_verified_at),
+            new UserStatus($eloquentUser->status),
+            new UserPassword($eloquentUser->password),
+            new UserVerifyToken($eloquentUser->verify_token),
+            new UserUpdatedAt($eloquentUser->updated_at),
+            new UserCreatedAt($eloquentUser->created_at)
+        );
+    }
+
     public function findUserByEmail(IUserEmail $userEmail): IUser
     {
         /** @var UserEloquentModel $eloquentUser */
@@ -88,5 +106,25 @@ class UserEloquentRepository implements IUserRepository
         }
 
         return $user;
+    }
+
+    /**
+     * @throws UserNotSavedException
+     */
+    public function updateUser(IUser $user): void
+    {
+        /** @var UserEloquentModel $eloquentUser */
+        $eloquentUser = UserEloquentModel::all(['uuid' => $user->getId()->value()])->first();
+
+        $eloquentUser->email = $user->getEmail()->value();
+        $eloquentUser->verify_token = $user->getVerifyToken()->value();
+        $eloquentUser->status = $user->getStatus()->value();
+        $eloquentUser->password = $user->getPassword()->value();
+        $eloquentUser->updated_at = now()->timestamp;
+        $eloquentUser->created_at = $user->getCreatedAt()->value();
+
+        if (!$eloquentUser->save()) {
+            throw new UserNotSavedException();
+        }
     }
 }

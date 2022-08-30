@@ -24,8 +24,10 @@ class VerifyEmailUserAction
         $userUuid = $requestJsonBody['uuid'];
         $verifyToken = $requestJsonBody['verifyToken'];
 
+        $successful = true;
+
         try {
-            $successful = $this->userVerifyEmailService->verifyUserByIdAndToken(new UserId($userUuid), new UserVerifyToken($verifyToken));
+            $this->userVerifyEmailService->verifyUserByIdAndToken(new UserId($userUuid), new UserVerifyToken($verifyToken));
         } catch (\Throwable $throwable) {
             $successful = false;
         }
