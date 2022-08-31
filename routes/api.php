@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Src\App\RegisterUserAction;
 use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
+use Src\App\UseCase\User\VerifyEmail\Action\VerifyEmailUserAction;
+use Src\App\UseCase\User\VerifyEmail\Service\UserVerifyEmailService;
 use Src\Infrastructure\Mailing\MailingConfiguration;
 use Src\Infrastructure\Mailing\MailingService;
 use Src\Infrastructure\Repositories\User\UserEloquentRepository;
@@ -48,4 +50,14 @@ Route::post('/v1/user-access/register', function(Request $request) {
     );
 
     return $registerUserAction($request->json())->toArray();
+});
+
+Route::post('/v1/user-access/register', function (Request $request) {
+    $verifyUserAction = new VerifyEmailUserAction(
+        new UserVerifyEmailService(
+            new UserEloquentRepository()
+        )
+    );
+
+    return $verifyUserAction($request->json())->toArray();
 });
