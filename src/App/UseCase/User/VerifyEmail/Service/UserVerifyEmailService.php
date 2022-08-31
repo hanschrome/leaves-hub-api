@@ -27,12 +27,6 @@ class UserVerifyEmailService implements IUserVerifyEmailService
      */
     public function verifyUserByIdAndToken(IUserId $userId, IUserVerifyToken $userVerifyToken): void
     {
-        /**
-         * - Get the user
-         * - Validate the token is the same
-         * - Validate the user
-         * - Save the user
-         */
         $user = $this->userRepository->findUserById($userId);
 
         if ($user->getVerifyToken() != $userVerifyToken->value()) {
