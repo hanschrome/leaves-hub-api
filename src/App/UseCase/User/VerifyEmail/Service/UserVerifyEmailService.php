@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Src\App\UseCase\User\VerifyEmail\Service;
 
+use Src\App\UseCase\User\VerifyEmail\Exception\VerifyEmailActionWrongTokenException;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\Properties\IUserId;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\UserVerifiedAt;
@@ -21,6 +22,9 @@ class UserVerifyEmailService implements IUserVerifyEmailService
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * @throws VerifyEmailActionWrongTokenException
+     */
     public function verifyUserByIdAndToken(IUserId $userId, IUserVerifyToken $userVerifyToken): void
     {
         /**
@@ -32,7 +36,7 @@ class UserVerifyEmailService implements IUserVerifyEmailService
         $user = $this->userRepository->findUserById($userId);
 
         if ($user->getVerifyToken() != $userVerifyToken->value()) {
-            throw new \Exception();
+            throw new VerifyEmailActionWrongTokenException();
         }
 
         $newUser = new User(
