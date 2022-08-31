@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Src\App\RegisterUserAction;
+use Src\App\UseCase\User\Login\Action\LoginUserAction;
+use Src\App\UseCase\User\Login\Service\UserLoginService;
 use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
 use Src\App\UseCase\User\VerifyEmail\Action\VerifyEmailUserAction;
 use Src\App\UseCase\User\VerifyEmail\Service\UserVerifyEmailService;
@@ -60,4 +62,14 @@ Route::post('/v1/user-access/register', function (Request $request) {
     );
 
     return $verifyUserAction($request->json())->toArray();
+});
+
+Route::post('/v1/user-access/login', function (Request $request) {
+    $loginUserAction = new LoginUserAction(
+        new UserLoginService(
+            new UserEloquentRepository()
+        )
+    );
+
+    return $loginUserAction($request->json())->toArray();
 });
