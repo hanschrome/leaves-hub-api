@@ -8,8 +8,15 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccount
 
 class UserAccountRecovery implements IUserAccountRecovery
 {
+    private IUserAccountRecoveryId $userAccountRecoveryId;
+
     public function __construct(IUserAccountRecoveryId $userAccountRecoveryId)
     {
+        $this->userAccountRecoveryId = $userAccountRecoveryId;
+    }
 
+    public function getId(): IUserAccountRecoveryId
+    {
+        return $this->userAccountRecoveryId;
     }
 }

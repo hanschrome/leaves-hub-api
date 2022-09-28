@@ -9,4 +9,6 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccount
 interface IUserAccountRecovery
 {
     public function __construct(IUserAccountRecoveryId $userAccountRecoveryId);
+
+    public function getId(): IUserAccountRecoveryId;
 }
