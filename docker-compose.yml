@@ -1,0 +1,14 @@
+version: '3'
+
+networks:
+    lha:
+        driver: bridge
+
+services:
+    leaves-hub-api:
+        container_name: leaves-hub-api
+        volumes:
+            - .:/var/www/html
+        build: .
+        networks:
+            - lha
