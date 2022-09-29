@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus;
 
-class UserAccountRecoveryStatus implements IUserAccountRecoveryStatus
+use Src\Domain\Properties\AbstractProperty;
+use Src\Domain\Properties\IProperty;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\Validators\UserAccountRecoveryStatusPropertyValidator;
+
+class UserAccountRecoveryStatus extends AbstractProperty implements IProperty, IUserAccountRecoveryStatus
 {
     public const STATUS_VALID = 1;
     public const STATUS_USED = 2;
@@ -26,5 +30,16 @@ class UserAccountRecoveryStatus implements IUserAccountRecoveryStatus
     public function value(): int
     {
         return $this->status;
+    }
+
+    public function sanitize(): void
+    {
+        // TODO: Implement sanitize() method.
+    }
+
+    public function validate(): void
+    {
+        $this->addValidator(new UserAccountRecoveryStatusPropertyValidator($this));
+        $this->executeValidators();
     }
 }
