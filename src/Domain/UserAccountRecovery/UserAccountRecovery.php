@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserAccountRecovery;
 
-use Src\Domain\User\IUser;
+use Src\Domain\User\Properties\IUserId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\IUserAccountRecoveryCreatedAt;
 use Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate\IUserAccountRecoveryDueDate;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
@@ -17,7 +17,7 @@ class UserAccountRecovery implements IUserAccountRecovery
 {
     private IUserAccountRecoveryId $userAccountRecoveryId;
     private IUserAccountRecoveryMethod $userAccountRecoveryMethod;
-    private IUser $user;
+    private IUserId $userId;
     private IUserAccountRecoveryStatus $userAccountRecoveryStatus;
     private IUserAccountRecoverySecretCode $userAccountRecoverySecretCode;
     private IUserAccountRecoveryDueDate $userAccountRecoveryDueDate;
@@ -27,7 +27,7 @@ class UserAccountRecovery implements IUserAccountRecovery
     public function __construct(
         IUserAccountRecoveryId $userAccountRecoveryId,
         IUserAccountRecoveryMethod $userAccountRecoveryMethod,
-        IUser $user,
+        IUserId $userId,
         IUserAccountRecoveryStatus $userAccountRecoveryStatus,
         IUserAccountRecoverySecretCode $userAccountRecoverySecretCode,
         IUserAccountRecoveryDueDate $userAccountRecoveryDueDate,
@@ -37,7 +37,7 @@ class UserAccountRecovery implements IUserAccountRecovery
     {
         $this->userAccountRecoveryId = $userAccountRecoveryId;
         $this->userAccountRecoveryMethod = $userAccountRecoveryMethod;
-        $this->user = $user;
+        $this->userId = $userId;
         $this->userAccountRecoveryStatus = $userAccountRecoveryStatus;
         $this->userAccountRecoverySecretCode = $userAccountRecoverySecretCode;
         $this->userAccountRecoveryDueDate = $userAccountRecoveryDueDate;
@@ -55,9 +55,9 @@ class UserAccountRecovery implements IUserAccountRecovery
         return $this->userAccountRecoveryMethod;
     }
 
-    public function getUser(): IUser
+    public function getUserID(): IUserId
     {
-        return $this->user;
+        return $this->userId;
     }
 
     public function getStatus(): IUserAccountRecoveryStatus

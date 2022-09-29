@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserAccountRecovery;
 
-use Src\Domain\User\IUser;
+use Src\Domain\User\Properties\IUserId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\IUserAccountRecoveryCreatedAt;
 use Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate\IUserAccountRecoveryDueDate;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
@@ -18,7 +18,7 @@ interface IUserAccountRecovery
     public function __construct(
         IUserAccountRecoveryId $userAccountRecoveryId,
         IUserAccountRecoveryMethod $userAccountRecoveryMethod,
-        IUser $user,
+        IUserId $userId,
         IUserAccountRecoveryStatus $userAccountRecoveryStatus,
         IUserAccountRecoverySecretCode $accountUserAccountRecoverySecretCode,
         IUserAccountRecoveryDueDate $userAccountRecoveryDueDate,
@@ -30,7 +30,7 @@ interface IUserAccountRecovery
 
     public function getMethod(): IUserAccountRecoveryMethod;
 
-    public function getUser(): IUser;
+    public function getUserId(): IUserId;
 
     public function getStatus(): IUserAccountRecoveryStatus;
 
