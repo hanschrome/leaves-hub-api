@@ -24,7 +24,7 @@ class UserAccountRecoveryId extends AbstractProperty implements IProperty, IUser
 
     public function sanitize(): void
     {
-        // TODO: Implement sanitize() method.
+        $this->id = trim($this->id);
     }
 
     public function validate(): void
