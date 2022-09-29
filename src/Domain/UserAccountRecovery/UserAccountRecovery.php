@@ -11,6 +11,7 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccount
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\IUserAccountRecoveryMethod;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\IUserAccountRecoverySecretCode;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\IUserAccountRecoveryStatus;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\IUserAccountRecoveryUpdatedAt;
 
 class UserAccountRecovery implements IUserAccountRecovery
 {
@@ -20,6 +21,7 @@ class UserAccountRecovery implements IUserAccountRecovery
     private IUserAccountRecoveryStatus $userAccountRecoveryStatus;
     private IUserAccountRecoverySecretCode $userAccountRecoverySecretCode;
     private IUserAccountRecoveryDueDate $userAccountRecoveryDueDate;
+    private IUserAccountRecoveryUpdatedAt $userAccountRecoveryUpdatedAt;
     private IUserAccountRecoveryCreatedAt $userAccountRecoveryCreatedAt;
 
     public function __construct(
@@ -29,6 +31,7 @@ class UserAccountRecovery implements IUserAccountRecovery
         IUserAccountRecoveryStatus $userAccountRecoveryStatus,
         IUserAccountRecoverySecretCode $userAccountRecoverySecretCode,
         IUserAccountRecoveryDueDate $userAccountRecoveryDueDate,
+        IUserAccountRecoveryUpdatedAt $userAccountRecoveryUpdatedAt,
         IUserAccountRecoveryCreatedAt $userAccountRecoveryCreatedAt
     )
     {
@@ -38,6 +41,7 @@ class UserAccountRecovery implements IUserAccountRecovery
         $this->userAccountRecoveryStatus = $userAccountRecoveryStatus;
         $this->userAccountRecoverySecretCode = $userAccountRecoverySecretCode;
         $this->userAccountRecoveryDueDate = $userAccountRecoveryDueDate;
+        $this->userAccountRecoveryUpdatedAt = $userAccountRecoveryUpdatedAt;
         $this->userAccountRecoveryCreatedAt = $userAccountRecoveryCreatedAt;
     }
 
@@ -69,6 +73,11 @@ class UserAccountRecovery implements IUserAccountRecovery
     public function getDueDate(): IUserAccountRecoveryDueDate
     {
         return $this->userAccountRecoveryDueDate;
+    }
+
+    public function getUpdatedAt(): IUserAccountRecoveryUpdatedAt
+    {
+        return $this->userAccountRecoveryUpdatedAt;
     }
 
     public function getCreatedAt(): IUserAccountRecoveryCreatedAt

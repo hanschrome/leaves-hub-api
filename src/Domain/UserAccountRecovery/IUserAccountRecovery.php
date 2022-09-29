@@ -11,6 +11,7 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccount
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\IUserAccountRecoveryMethod;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\IUserAccountRecoverySecretCode;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\IUserAccountRecoveryStatus;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\IUserAccountRecoveryUpdatedAt;
 
 interface IUserAccountRecovery
 {
@@ -21,6 +22,7 @@ interface IUserAccountRecovery
         IUserAccountRecoveryStatus $userAccountRecoveryStatus,
         IUserAccountRecoverySecretCode $accountUserAccountRecoverySecretCode,
         IUserAccountRecoveryDueDate $userAccountRecoveryDueDate,
+        IUserAccountRecoveryUpdatedAt $userAccountRecoveryUpdatedAt,
         IUserAccountRecoveryCreatedAt $userAccountRecoveryCreatedAt
     );
 
@@ -35,6 +37,8 @@ interface IUserAccountRecovery
     public function getSecretCode(): IUserAccountRecoverySecretCode;
 
     public function getDueDate(): IUserAccountRecoveryDueDate;
+
+    public function getUpdatedAt(): IUserAccountRecoveryUpdatedAt;
 
     public function getCreatedAt(): IUserAccountRecoveryCreatedAt;
 }
