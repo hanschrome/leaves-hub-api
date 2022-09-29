@@ -26,6 +26,7 @@ class UserCreatedAt extends AbstractTimestampProperty implements IProperty, IUse
 
     public function validate(): void
     {
+        parent::validate();
         $this->addValidator(new UserCreatedAtTimestampPropertyValidator($this));
         $this->executeValidators();
     }
