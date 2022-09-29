@@ -7,6 +7,7 @@ namespace Src\Domain\UserAccountRecovery;
 use Src\Domain\User\IUser;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\IUserAccountRecoveryMethod;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\IUserAccountRecoverySecretCode;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\IUserAccountRecoveryStatus;
 
 interface IUserAccountRecovery
@@ -15,7 +16,8 @@ interface IUserAccountRecovery
         IUserAccountRecoveryId $userAccountRecoveryId,
         IUserAccountRecoveryMethod $userAccountRecoveryMethod,
         IUser $user,
-        IUserAccountRecoveryStatus $userAccountRecoveryStatus
+        IUserAccountRecoveryStatus $userAccountRecoveryStatus,
+        IUserAccountRecoverySecretCode $accountUserAccountRecoverySecretCode
     );
 
     public function getId(): IUserAccountRecoveryId;
@@ -25,4 +27,6 @@ interface IUserAccountRecovery
     public function getUser(): IUser;
 
     public function getStatus(): IUserAccountRecoveryStatus;
+
+    public function getSecretCode(): IUserAccountRecoverySecretCode;
 }
