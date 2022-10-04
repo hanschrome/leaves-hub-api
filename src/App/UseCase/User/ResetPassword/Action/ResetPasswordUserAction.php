@@ -34,8 +34,11 @@ class ResetPasswordUserAction
 
         $user = $this->userRepository->findUserByEmail($email);
 
-        $this->userResetPasswordService->resetPasswordByEmail($user->getEmail()); // @todo throw exception if not possible
-        $this->mailingService->sendMail($user, '', ''); // @todo add the subject and body
+        $passwordHasBeenReset = $this->userResetPasswordService->resetPasswordByEmail($user->getEmail());
+
+        if ($passwordHasBeenReset) {
+            $this->mailingService->sendMail($user, '', ''); // @todo add the subject and body... where to save it? XD
+        }
 
         return new ResetPasswordUserResponse(null, true);
     }
