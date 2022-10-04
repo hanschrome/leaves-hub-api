@@ -13,6 +13,8 @@ use Src\Infrastructure\Api\Response\Login\LoginWrongUserResponse;
 
 class LoginUserAction
 {
+    public const PARAM_EMAIL = 'email';
+    public const PARAM_PASSWORD = 'password';
     private IUserLoginService $userLoginService;
 
     public function __construct(IUserLoginService $userLoginService)
@@ -22,15 +24,15 @@ class LoginUserAction
 
     public function __invoke(array $requestJsonBody): IResponse
     {
-        $email = $requestJsonBody['email'];
-        $password = $requestJsonBody['password'];
+        $email = $requestJsonBody[self::PARAM_EMAIL];
+        $password = $requestJsonBody[self::PARAM_PASSWORD];
 
         $success = true;
 
         try {
             $user = $this->userLoginService->startSessionByEmailAndPassword(new UserEmail($email), new UserPassword($password));
             // @todo add here the session
-        } catch (\Throwable $throwable) {
+        } catch (\Throwable $throwable) { // @todo log and handle better this exception
             $success = false;
         }
 

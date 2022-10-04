@@ -13,6 +13,8 @@ use Src\Infrastructure\Mailing\IMailingService;
 
 class ResetPasswordUserAction
 {
+    public const PARAM_EMAIL = 'email';
+
     private IUserResetPasswordService $userResetPasswordService;
     private IMailingService $mailingService;
     private IUserRepository $userRepository;
@@ -30,7 +32,7 @@ class ResetPasswordUserAction
 
     public function __invoke(array $requestJsonBody): IResponse
     {
-        $email = new UserEmail($requestJsonBody['email']);
+        $email = new UserEmail($requestJsonBody[self::PARAM_EMAIL]);
 
         $user = $this->userRepository->findUserByEmail($email);
 

@@ -16,6 +16,7 @@ use Throwable;
 
 class RegisterUserAction
 {
+    public const PARAM_EMAIL = 'email';
     private IUserRegistrationService $iUserRegistrationService;
 
     public function __construct(IUserRegistrationService $iUserRegistrationService)
@@ -29,12 +30,12 @@ class RegisterUserAction
     public function __invoke(array $requestJsonBody): IResponse
     {
         // $captchaToken = $requestJsonBody['captchaToken'];
-        $emailRawRequest = $requestJsonBody['email'];
+        $emailRawRequest = $requestJsonBody[self::PARAM_EMAIL];
         $response = new RegisterUserResponse(null, true);
 
         try {
             $this->iUserRegistrationService->registerUserByEmail(new UserEmail($emailRawRequest));
-        } catch (RegisterUserActionNotVerifiedUserIntentException $exception) {
+        } catch (RegisterUserActionNotVerifiedUserIntentException $exception) { // @todo log this exceptions in Sentry
             $response = new RegisterUserErrorResponse(
                 200,
                 RegisterUserErrorResponse::KEY_RESPONSE_NOT_VERIFIED_USER_INTENT,
