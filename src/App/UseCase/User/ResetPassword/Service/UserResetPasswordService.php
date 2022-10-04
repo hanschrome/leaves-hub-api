@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Src\App\UseCase\User\ResetPassword\Service;
 
 use Ramsey\Uuid\Uuid;
+use Src\App\UseCase\User\ResetPassword\ResetPasswordUserActionNotPossibleToResetPasswordException;
 use Src\Domain\Repositories\IUserRepository;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
@@ -17,6 +18,7 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\User
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\UserAccountRecoveryStatus;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\UserAccountRecoveryUpdatedAt;
 use Src\Domain\UserAccountRecovery\Repositories\IUserAccountRecoveryRepository;
+use Src\Domain\UserAccountRecovery\Repositories\UserAccountRecoveryException;
 use Src\Domain\UserAccountRecovery\UserAccountRecovery;
 
 class UserResetPasswordService implements IUserResetPasswordService
@@ -33,6 +35,9 @@ class UserResetPasswordService implements IUserResetPasswordService
         $this->userAccountRecoveryRepository = $userAccountRecoveryRepository;
     }
 
+    /**
+     * @throws ResetPasswordUserActionNotPossibleToResetPasswordException
+     */
     public function resetPasswordByEmail(UserEmail $userEmail): bool
     {
         $user = $this->userRepository->findUserByEmail($userEmail);
@@ -50,8 +55,13 @@ class UserResetPasswordService implements IUserResetPasswordService
                 new UserAccountRecoveryCreatedAt(now()->timestamp)
             );
 
-            $this->userAccountRecoveryRepository->createUserAccountRecovery($userAccountRecovery);
-            $out = true;
+            try {
+                $this->userAccountRecoveryRepository->createUserAccountRecovery($userAccountRecovery);
+                $out = true;
+            } catch (UserAccountRecoveryException $userAccountRecoveryException) {
+                // @todo save it in Sentry
+                throw new ResetPasswordUserActionNotPossibleToResetPasswordException('Password was not possible to reset');
+            }
         }
 
         return $out;

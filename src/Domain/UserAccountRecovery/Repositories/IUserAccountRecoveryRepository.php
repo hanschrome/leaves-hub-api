@@ -11,5 +11,8 @@ interface IUserAccountRecoveryRepository
 {
     public function getUserAccountRecoveryById(IUserAccountRecoveryId $userAccountRecoveryId): IUserAccountRecovery;
 
+    /**
+     * @throws UserAccountRecoveryException
+     */
     public function createUserAccountRecovery(IUserAccountRecovery $userAccountRecovery): IUserAccountRecovery;
 }
