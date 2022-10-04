@@ -16,6 +16,7 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\User
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\UserAccountRecoveryStatus;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\UserAccountRecoveryUpdatedAt;
 use Src\Domain\UserAccountRecovery\Repositories\IUserAccountRecoveryRepository;
+use Src\Domain\UserAccountRecovery\Repositories\UserAccountRecoveryException;
 use Src\Domain\UserAccountRecovery\UserAccountRecovery;
 
 class UserAccountRecoveryEloquentRepository implements IUserAccountRecoveryRepository
@@ -38,6 +39,9 @@ class UserAccountRecoveryEloquentRepository implements IUserAccountRecoveryRepos
         );
     }
 
+    /**
+     * @throws UserAccountRecoveryException
+     */
     public function createUserAccountRecovery(IUserAccountRecovery $userAccountRecovery): IUserAccountRecovery
     {
         $userAccountRecoveryEloquentModel = new UserAccountRecoveryEloquentModel();
@@ -51,6 +55,10 @@ class UserAccountRecoveryEloquentRepository implements IUserAccountRecoveryRepos
         $userAccountRecoveryEloquentModel->updated_at = $userAccountRecovery->getDueDate()->value();
         $userAccountRecoveryEloquentModel->created_at = $userAccountRecovery->getCreatedAt()->value();
 
-        $userAccountRecoveryEloquentModel->save();
+        if (!$userAccountRecoveryEloquentModel->save()) {
+            throw new UserAccountRecoveryException('Error saving UserAccountRecovery in database by Eloquent.');
+        }
+
+        return $userAccountRecovery;
     }
 }
