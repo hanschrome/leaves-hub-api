@@ -6,5 +6,5 @@ namespace Src\Domain\User\Properties\UserStatus;
 
 interface IUserStatus
 {
-    public function value(): string;
+    public function value(): int;
 }
