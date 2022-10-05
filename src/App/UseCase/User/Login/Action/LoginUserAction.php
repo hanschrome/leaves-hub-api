@@ -35,7 +35,7 @@ class LoginUserAction
         $userSession = null;
 
         try {
-            $user = $this->userLoginService->startSessionByEmailAndPassword(new UserEmail($email), new UserPassword($password));
+            $user = $this->userLoginService->findUserByEmailAndPassword(new UserEmail($email), new UserPassword($password));
 
             $userSession = $this->userSessionLoginService->startSessionByUser($user);
         } catch (\Throwable $throwable) { // @todo log and handle better this exception

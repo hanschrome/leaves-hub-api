@@ -10,5 +10,5 @@ use Src\Domain\User\Properties\UserPassword\IUserPassword;
 
 interface IUserLoginService
 {
-    public function startSessionByEmailAndPassword(IUserEmail $userEmail, IUserPassword $userPassword): IUser;
+    public function findUserByEmailAndPassword(IUserEmail $userEmail, IUserPassword $userPassword): IUser;
 }
