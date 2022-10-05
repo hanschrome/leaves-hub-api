@@ -8,7 +8,7 @@ use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
 use Src\Domain\UserSession\Properties\UserSessionId\Validator\UserSessionIdValidator;
 
-class UserSessionId extends AbstractProperty implements IProperty
+class UserSessionId extends AbstractProperty implements IProperty, IUserSessionId
 {
     private string $value;
 
