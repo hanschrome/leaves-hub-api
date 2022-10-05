@@ -9,5 +9,5 @@ use Src\Domain\UserSession\IUserSession;
 
 interface IUserSessionRepository
 {
-    public function createSessionByUser(IUser $user): IUserSession;
+    public function create(IUserSession $userSession): IUserSession;
 }

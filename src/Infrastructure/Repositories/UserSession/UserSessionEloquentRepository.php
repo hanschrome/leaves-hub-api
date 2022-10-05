@@ -11,7 +11,7 @@ use Src\Domain\UserSession\Repositories\IUserSessionRepository;
 class UserSessionEloquentRepository implements IUserSessionRepository
 {
 
-    public function createSessionByUser(IUser $user): IUserSession
+    public function create(IUserSession $userSession): IUserSession
     {
         // TODO: Implement createSessionByUser() method.
     }
