@@ -18,11 +18,11 @@ class TimestampPropertyRangeValidator implements IPropertyValidator
     }
 
     /**
-     * @throws Exception
+     * @throws TimestampPropertyRangeException
      */
     public function validate(): void
     {
-        if ($this->property->value() <= 0 || $this->property->value() > now()) {
+        if ($this->property->value() <= 0 || $this->property->value() > now()->getTimestamp()) {
             throw new TimestampPropertyRangeException(
                 'Property ' . get_class($this->property) . ' is out of range: (' . $this->property->value() . ')'
             );
