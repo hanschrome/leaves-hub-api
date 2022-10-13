@@ -1,14 +1,54 @@
-version: '3'
+version: "3"
 
 networks:
-    lha:
+    LHA:
         driver: bridge
+        ipam:
+            config:
+                - subnet: 10.6.0.0/16
+                  gateway: 10.6.0.1
 
 services:
-    leaves-hub-api:
-        container_name: leaves-hub-api
+    web:
+        image: nginx:latest
+        restart: always
+        ports:
+            - "8001:80"
         volumes:
             - .:/var/www/html
-        build: .
+            - ./docker/data/nginx/config/default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/data/nginx/logs/:/var/log/nginx/
         networks:
-            - lha
+            LHA:
+                ipv4_address: 10.6.0.2
+    mysql:
+        container_name: mysql
+        image: mysql:8-debian
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - "8002:3306"
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.3
+    php-fpm:
+        container_name: phpfpm
+        build: ./docker/images/php-fpm/
+        volumes:
+            - .:/var/www/html
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.4
+    phpmyadmin:
+        image: phpmyadmin:latest
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - PMA_HOST=10.6.0.3
+            - PMA_PORT=3306
+        ports:
+            - "8003:80"
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.5
