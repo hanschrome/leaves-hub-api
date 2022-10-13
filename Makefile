@@ -5,3 +5,5 @@ up:
 reset: down up
 build:
 	docker compose build || docker-compose build
+unit-tests:
+	docker compose exec php-fpm php vendor/bin/phpunit

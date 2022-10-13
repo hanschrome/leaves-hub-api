@@ -16,6 +16,10 @@ In case of storage permission issues:
 
 ```sudo chmod 777 -R storage``` (just for develop environment)
 
+## Running tests
+
+```make unit-tests```
+
 ## Dependencies
 
 - Docker
