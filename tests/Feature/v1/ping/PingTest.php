@@ -1,11 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+namespace Tests\Feature\v1\ping;
+
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class PingTest extends TestCase
 {
     /**
      * A basic test example.
