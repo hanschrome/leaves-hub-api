@@ -54,7 +54,7 @@ class UserRegistrationService implements IUserRegistrationService
             'Confirm your email address',
             str_replace(
                 ['{{FRONT_HOST}}', $user->getVerifyToken()],
-                ['', $user->getVerifyToken()],
+                ['{{HASH}}', $user->getVerifyToken()],
                 'Click on the following link: {{FRONT_HOST}}/confirm-email/{{HASH}}')
         )
         ) {
