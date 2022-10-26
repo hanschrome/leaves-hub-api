@@ -104,3 +104,13 @@ Route::post('/v1/user-access/recover-password', function (Request $request) {
 
     return $userRecoverPasswordAction($request->json())->toArray();
 });
+
+Route::post('/v1/user-access/verify-email', function (Request $request) {
+    $userVerifyAccount = new VerifyEmailUserAction(
+        new UserVerifyEmailService(
+            new UserEloquentRepository()
+        )
+    );
+
+    return $userVerifyAccount($request->json())->toArray();
+});
