@@ -11,3 +11,5 @@ unit-tests:
 	docker compose exec php-fpm php vendor/bin/phpunit tests/Unit || docker-compose exec php-fpm php vendor/bin/phpunit tests/Unit
 feature-tests:
 	docker compose exec php-fpm php vendor/bin/phpunit tests/Feature || docker-compose exec php-fpm php vendor/bin/phpunit tests/Feature
+firefox:
+	docker compose up -d firefox || docker-compose down firefox

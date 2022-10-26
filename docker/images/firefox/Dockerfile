@@ -12,4 +12,5 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/developer
+ENV DISPLAY :0
 CMD /usr/bin/firefox

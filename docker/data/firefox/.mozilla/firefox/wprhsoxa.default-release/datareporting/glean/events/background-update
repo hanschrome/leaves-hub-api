@@ -1,0 +1,5 @@
+{"timestamp":1587585,"category":"nimbus_events","name":"enroll_failed","extra":{"reason":"feature-conflict","experiment":"tcp-rollout-phase-iii-tcp-on-by-default-for-95-existing-release-profiles"}}
+{"timestamp":1587597,"category":"nimbus_events","name":"validation_failed","extra":{"experiment":"106-major-release-firefox-existing-user-experience","reason":"invalid-branch","branch":"control"}}
+{"timestamp":1587597,"category":"nimbus_events","name":"validation_failed","extra":{"reason":"invalid-branch","branch":"treatment-a","experiment":"106-major-release-firefox-existing-user-experience"}}
+{"timestamp":1587597,"category":"nimbus_events","name":"validation_failed","extra":{"reason":"invalid-branch","experiment":"106-major-release-firefox-new-user","branch":"control"}}
+{"timestamp":1587597,"category":"nimbus_events","name":"validation_failed","extra":{"branch":"treatment-mr-on","reason":"invalid-branch","experiment":"106-major-release-firefox-new-user"}}
