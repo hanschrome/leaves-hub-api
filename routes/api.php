@@ -8,11 +8,13 @@ use Src\App\UseCase\User\Login\Service\UserLoginService;
 use Src\App\UseCase\User\Login\Service\UserSessionLoginService;
 use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
 use Src\App\UseCase\User\ResetPassword\Action\ResetPasswordUserAction;
+use Src\App\UseCase\User\ResetPassword\Service\UserResetPasswordService;
 use Src\App\UseCase\User\VerifyEmail\Action\VerifyEmailUserAction;
 use Src\App\UseCase\User\VerifyEmail\Service\UserVerifyEmailService;
 use Src\Infrastructure\Mailing\MailingConfiguration;
 use Src\Infrastructure\Mailing\MailingService;
 use Src\Infrastructure\Repositories\User\UserEloquentRepository;
+use Src\Infrastructure\Repositories\UserAccountRecovery\UserAccountRecoveryEloquentRepository;
 use Src\Infrastructure\Repositories\UserSession\UserSessionEloquentRepository;
 
 /*
@@ -82,9 +84,9 @@ Route::post('/v1/user-access/login', function (Request $request) {
 
 Route::post('/v1/user-access/recover-password', function (Request $request) {
     $userRecoverPasswordAction = new ResetPasswordUserAction(
-        new \Src\App\UseCase\User\ResetPassword\Service\UserResetPasswordService(
+        new UserResetPasswordService(
             new UserEloquentRepository(),
-            new \Src\Infrastructure\Repositories\UserAccountRecovery\UserAccountRecoveryEloquentRepository()
+            new UserAccountRecoveryEloquentRepository()
         ),
         new MailingService(
             new MailingConfiguration(
