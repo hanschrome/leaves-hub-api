@@ -52,3 +52,12 @@ services:
         networks:
             LHA:
                 ipv4_address: 10.6.0.5
+    firefox:
+        build: ./docker/images/firefox
+        container_name: firefox_lha
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - ./docker/data/firefox:/home/developer
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.6
