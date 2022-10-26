@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Route;
 use Src\App\RegisterUserAction;
 use Src\App\UseCase\User\Login\Action\LoginUserAction;
 use Src\App\UseCase\User\Login\Service\UserLoginService;
+use Src\App\UseCase\User\Login\Service\UserSessionLoginService;
 use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
+use Src\App\UseCase\User\ResetPassword\Action\ResetPasswordUserAction;
 use Src\App\UseCase\User\VerifyEmail\Action\VerifyEmailUserAction;
 use Src\App\UseCase\User\VerifyEmail\Service\UserVerifyEmailService;
 use Src\Infrastructure\Mailing\MailingConfiguration;
 use Src\Infrastructure\Mailing\MailingService;
 use Src\Infrastructure\Repositories\User\UserEloquentRepository;
+use Src\Infrastructure\Repositories\UserSession\UserSessionEloquentRepository;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +34,7 @@ Route::get('/v1/ping', function () {
     return ['PONG'];
 });
 
-Route::post('/v1/user-access/register', function(Request $request) {
+Route::post('/v1/user-access/register', function (Request $request) {
     $registerUserAction = new RegisterUserAction(
         new UserRegistrationService(
             new UserEloquentRepository(),
@@ -68,8 +71,36 @@ Route::post('/v1/user-access/login', function (Request $request) {
     $loginUserAction = new LoginUserAction(
         new UserLoginService(
             new UserEloquentRepository()
+        ),
+        new UserSessionLoginService(
+            new UserSessionEloquentRepository()
         )
     );
 
     return $loginUserAction($request->json())->toArray();
+});
+
+Route::post('/v1/user-access/recover-password', function (Request $request) {
+    $userRecoverPasswordAction = new ResetPasswordUserAction(
+        new \Src\App\UseCase\User\ResetPassword\Service\UserResetPasswordService(
+            new UserEloquentRepository(),
+            new \Src\Infrastructure\Repositories\UserAccountRecovery\UserAccountRecoveryEloquentRepository()
+        ),
+        new MailingService(
+            new MailingConfiguration(
+                false,
+                true,
+                config('mail.mailers')['smtp']['encryption'],
+                config('mail.mailers')['smtp']['port'],
+                config('mail.mailers')['smtp']['host'],
+                config('mail.mailers')['smtp']['username'],
+                config('mail.mailers')['smtp']['password'],
+                config('mail.from')['address'],
+                config('mail.from')['name']
+            )
+        ),
+        new UserEloquentRepository()
+    );
+
+    return $userRecoverPasswordAction($request->json())->toArray();
 });
