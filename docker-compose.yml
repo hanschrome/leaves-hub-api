@@ -24,6 +24,14 @@ services:
         networks:
             LHA:
                 ipv4_address: 10.6.0.2
+    php-fpm:
+        container_name: phpfpm
+        build: ./docker/images/php-fpm/
+        volumes:
+            - .:/var/www/html
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.4
     mysql:
         container_name: mysql
         image: mysql:8-debian
@@ -35,14 +43,6 @@ services:
         networks:
             LHA:
                 ipv4_address: 10.6.0.3
-    php-fpm:
-        container_name: phpfpm
-        build: ./docker/images/php-fpm/
-        volumes:
-            - .:/var/www/html
-        networks:
-            LHA:
-                ipv4_address: 10.6.0.4
     phpmyadmin:
         image: phpmyadmin:latest
         restart: always
@@ -57,6 +57,31 @@ services:
         networks:
             LHA:
                 ipv4_address: 10.6.0.5
+    mysql-testing:
+        container_name: mysql-testing
+        image: mysql:8-debian
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - "8004:3306"
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.7
+    phpmyadmin-testing:
+        image: phpmyadmin:latest
+        restart: always
+        depends_on:
+            -   mysql-testing
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - PMA_HOST=10.6.0.7
+            - PMA_PORT=3306
+        ports:
+            - "8005:80"
+        networks:
+            LHA:
+                ipv4_address: 10.6.0.8
     firefox:
         build: ./docker/images/firefox
         container_name: firefox_lha
