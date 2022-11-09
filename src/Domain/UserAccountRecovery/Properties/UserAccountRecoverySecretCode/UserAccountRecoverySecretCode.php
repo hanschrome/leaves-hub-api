@@ -6,7 +6,7 @@ namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCod
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\UserAccountRecoverySecretCode\Validators\UserAccountRecoverySecretCodePropertyValidator;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\Validators\UserAccountRecoverySecretCodePropertyValidator;
 
 class UserAccountRecoverySecretCode extends AbstractProperty implements IProperty, IUserAccountRecoverySecretCode
 {

@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\User\Properties;
+namespace Src\Domain\User\Properties\UserId;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\User\Properties\Validators\UserIdPropertyValidator;
+use Src\Domain\User\Properties\UserId\IUserId;
+use Src\Domain\User\Properties\UserId\Validators\Uuid\UserIdPropertyValidator;
 
 class UserId extends AbstractProperty implements IProperty, IUserId
 {

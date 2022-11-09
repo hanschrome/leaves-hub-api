@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\Properties\User\Properties\UserEmailVerifiedAt\Validators;
+namespace Src\Domain\User\Properties\UserEmailVerifiedAt\Validators\UserVerifiedAtTimestampPropertyValidator;
 
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeException;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeException;
 
 class UserVerifiedAtTimestampPropertyWrongRangeException extends TimestampPropertyRangeException
 {

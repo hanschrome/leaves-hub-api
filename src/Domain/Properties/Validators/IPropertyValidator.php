@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Domain\Validators;
+namespace Src\Domain\Properties\Validators;
 
 use Src\Domain\Properties\IProperty;
 

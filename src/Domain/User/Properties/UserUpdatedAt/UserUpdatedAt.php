@@ -6,7 +6,7 @@ namespace Src\Domain\User\Properties\UserUpdatedAt;
 
 use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\User\Properties\UserUpdatedAt\Validators\UserUpdatedAtTimestampPropertyValidator;
+use Src\Domain\User\Properties\UserUpdatedAt\Validators\UserUpdatedAtTimestampPropertyValidator\UserUpdatedAtTimestampPropertyValidator;
 
 class UserUpdatedAt extends AbstractTimestampProperty implements IProperty, IUserUpdatedAt
 {
@@ -30,7 +30,7 @@ class UserUpdatedAt extends AbstractTimestampProperty implements IProperty, IUse
         $this->executeValidators();
     }
 
-    public function value(): ?int
+    public function value(): int
     {
         return $this->timestamp;
     }

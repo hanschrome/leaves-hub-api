@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\Properties;
 
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class AbstractProperty
 {

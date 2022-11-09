@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\App;
+namespace Src\App\UseCase\User\Registration\Action;
 
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
-use Src\Domain\User\Services\IUserRegistrationService;
+use Src\Domain\User\Services\Registration\IUserRegistrationService;
 use Src\Infrastructure\Mailing\IMailingService;
 
 class SendRegisterEmailUserInternalAction

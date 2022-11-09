@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Src\App\UseCase\User\VerifyEmail\Action;
 
-use Src\Domain\User\Properties\UserId;
+use Src\Domain\User\Properties\UserId\UserId;
 use Src\Domain\User\Properties\UserVerifyToken\UserVerifyToken;
 use Src\Domain\User\Services\VerifyEmail\IUserVerifyEmailService;
-use Src\Infrastructure\Api\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\IResponse;
 use Src\Infrastructure\Api\User\Response\VerifyEmail\VerifyEmailUserResponse;
 
 class VerifyEmailUserAction

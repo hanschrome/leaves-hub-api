@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Infrastructure\Api\Response;
+namespace Src\Infrastructure\Api\User\Response;
 
 interface IResponse
 {

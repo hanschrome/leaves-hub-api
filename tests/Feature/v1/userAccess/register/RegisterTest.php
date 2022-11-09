@@ -14,9 +14,9 @@ class RegisterTest extends TestCase
      */
     public function test_register(string $email, array $expected)
     {
-        /**
-         * @todo
-         */
+        $response = $this->post('/api/v1/user-access/register', ['email' => $email]);
+
+        $this->assertEquals($response->json(), $expected);
     }
 
     public function registerProvider(): array

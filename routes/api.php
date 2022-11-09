@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Src\App\RegisterUserAction;
 use Src\App\UseCase\User\Login\Action\LoginUserAction;
 use Src\App\UseCase\User\Login\Service\UserLoginService;
 use Src\App\UseCase\User\Login\Service\UserSessionLoginService;
+use Src\App\UseCase\User\Registration\Action\RegisterUserAction;
 use Src\App\UseCase\User\Registration\Service\UserRegistrationService;
 use Src\App\UseCase\User\ResetPassword\Action\ResetPasswordUserAction;
 use Src\App\UseCase\User\ResetPassword\Service\UserResetPasswordService;
@@ -57,16 +57,6 @@ Route::post('/v1/user-access/register', function (Request $request) {
     );
 
     return $registerUserAction($request->json())->toArray();
-});
-
-Route::post('/v1/user-access/register', function (Request $request) {
-    $verifyUserAction = new VerifyEmailUserAction(
-        new UserVerifyEmailService(
-            new UserEloquentRepository()
-        )
-    );
-
-    return $verifyUserAction($request->json())->toArray();
 });
 
 Route::post('/v1/user-access/login', function (Request $request) {

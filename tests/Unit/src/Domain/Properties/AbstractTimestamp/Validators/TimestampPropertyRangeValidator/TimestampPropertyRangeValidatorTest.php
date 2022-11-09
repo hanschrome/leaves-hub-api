@@ -10,8 +10,8 @@ require 'src/Domain/Properties/Validators/Exceptions/IPropertyException.php';
 require 'src/Domain/Properties/AbstractTimestamp/Validators/TimestampPropertyRangeValidator/TimestampPropertyRangeException.php';
 require 'src/Domain/Properties/AbstractTimestamp/Validators/TimestampPropertyRangeValidator/TimestampPropertyRangeValidator.php';
 
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeException;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeValidator;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeException;
 use Tests\TestCase;
 
 class TimestampPropertyRangeValidatorTest extends TestCase

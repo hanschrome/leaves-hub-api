@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\Properties\AbstractTimestamp;
+namespace Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator;
 
 use Exception;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeException;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class TimestampPropertyRangeValidator implements IPropertyValidator
 {

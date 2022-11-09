@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Infrastructure\Api\User\Response\VerifyEmail;
 
-use Src\Infrastructure\Api\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\IResponse;
 
 class VerifyEmailUserResponse implements IResponse
 {

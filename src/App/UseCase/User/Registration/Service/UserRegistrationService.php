@@ -6,10 +6,10 @@ namespace Src\App\UseCase\User\Registration\Service;
 
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionNotVerifiedUserIntentException;
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionVerifiedUserIntentException;
-use Src\Domain\Repositories\IUserRepository;
+use Src\Domain\User\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
-use Src\Domain\User\Services\IUserRegistrationService;
+use Src\Domain\User\Services\Registration\IUserRegistrationService;
 use Src\Infrastructure\Mailing\IMailingService;
 
 class UserRegistrationService implements IUserRegistrationService

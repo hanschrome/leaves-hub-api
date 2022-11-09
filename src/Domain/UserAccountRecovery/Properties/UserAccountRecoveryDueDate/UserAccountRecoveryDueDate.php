@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate;
+namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryDueDate;
 
 use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;

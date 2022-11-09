@@ -6,7 +6,7 @@ namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\Valida
 
 use Src\Domain\Properties\IProperty;
 use Src\Domain\User\Properties\Validators\UserIdPropertyWrongFormatException;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserAccountRecoveryIdPropertyValidator implements IPropertyValidator
 {

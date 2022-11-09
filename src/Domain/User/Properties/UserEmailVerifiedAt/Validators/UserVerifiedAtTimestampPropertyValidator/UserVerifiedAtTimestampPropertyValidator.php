@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\Properties\User\Properties\UserEmailVerifiedAt\Validators;
+namespace Src\Domain\User\Properties\UserEmailVerifiedAt\Validators\UserVerifiedAtTimestampPropertyValidator;
 
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeValidator;
 
 class UserVerifiedAtTimestampPropertyValidator extends TimestampPropertyRangeValidator
 {

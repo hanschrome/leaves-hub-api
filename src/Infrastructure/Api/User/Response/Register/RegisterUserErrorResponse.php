@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Infrastructure\Api\Response\Register;
+namespace Src\Infrastructure\Api\User\Response\Register;
 
-use Src\Infrastructure\Api\Response\IResponse;
 use Exception;
+use Src\Infrastructure\Api\User\Response\IResponse;
 
 class RegisterUserErrorResponse implements IResponse
 {

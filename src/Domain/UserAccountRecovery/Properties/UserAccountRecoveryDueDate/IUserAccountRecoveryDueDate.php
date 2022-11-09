@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate;
+namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryDueDate;
 
 interface IUserAccountRecoveryDueDate
 {

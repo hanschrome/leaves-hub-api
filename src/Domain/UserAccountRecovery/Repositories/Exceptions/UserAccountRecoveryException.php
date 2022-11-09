@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserAccountRecovery\Repositories;
+namespace Src\Domain\UserAccountRecovery\Repositories\Exceptions;
 
 use Exception;
 

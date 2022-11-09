@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Infrastructure\Api\Response\Login;
+namespace Src\Infrastructure\Api\User\Response\Login;
 
 use Src\Domain\UserSession\Properties\UserSessionId\IUserSessionId;
-use Src\Infrastructure\Api\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\IResponse;
 
 class LoginSuccessUserResponse implements IResponse
 {

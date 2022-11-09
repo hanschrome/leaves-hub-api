@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Src\App\UseCase\User\VerifyEmail\Service;
 
 use Src\App\UseCase\User\VerifyEmail\Exception\VerifyEmailActionWrongTokenException;
-use Src\Domain\Repositories\IUserRepository;
-use Src\Domain\User\Properties\IUserId;
+use Src\Domain\User\Repositories\IUserRepository;
+use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\UserVerifiedAt;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
 use Src\Domain\User\Properties\UserVerifyToken\IUserVerifyToken;

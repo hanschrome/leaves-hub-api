@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\User;
 
-use Src\Domain\User\Properties\IUserId;
+use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\User\Properties\UserCreatedAt\IUserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\IUserVerifiedAt;

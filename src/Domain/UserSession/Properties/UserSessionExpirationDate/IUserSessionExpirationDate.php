@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\USerSession\Properties\UserSessionExpirationDate;
+namespace Src\Domain\UserSession\Properties\UserSessionExpirationDate;
 
 interface IUserSessionExpirationDate
 {

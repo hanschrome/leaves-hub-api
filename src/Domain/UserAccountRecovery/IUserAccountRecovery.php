@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserAccountRecovery;
 
-use Src\Domain\User\Properties\IUserId;
+use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\IUserAccountRecoveryCreatedAt;
-use Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate\IUserAccountRecoveryDueDate;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryDueDate\IUserAccountRecoveryDueDate;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\IUserAccountRecoveryMethod;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\IUserAccountRecoverySecretCode;

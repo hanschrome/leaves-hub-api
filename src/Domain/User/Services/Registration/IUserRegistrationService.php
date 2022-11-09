@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\User\Services;
+namespace Src\Domain\User\Services\Registration;
 
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionNotVerifiedUserIntentException;
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionVerifiedUserIntentException;

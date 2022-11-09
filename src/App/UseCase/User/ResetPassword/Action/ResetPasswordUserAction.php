@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Src\App\UseCase\User\ResetPassword\Action;
 
-use Src\Domain\Repositories\IUserRepository;
+use Src\Domain\User\Repositories\IUserRepository;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Services\ResetPassword\IUserResetPasswordService;
-use Src\Infrastructure\Api\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\IResponse;
 use Src\Infrastructure\Api\User\Response\ResetPassword\ResetPasswordUserResponse;
 use Src\Infrastructure\Mailing\IMailingService;
 

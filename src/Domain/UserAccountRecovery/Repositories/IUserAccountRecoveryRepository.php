@@ -6,6 +6,7 @@ namespace Src\Domain\UserAccountRecovery\Repositories;
 
 use Src\Domain\UserAccountRecovery\IUserAccountRecovery;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
+use Src\Domain\UserAccountRecovery\Repositories\Exceptions\UserAccountRecoveryException;
 
 interface IUserAccountRecoveryRepository
 {

@@ -10,7 +10,7 @@ use Src\Domain\User\IUser;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
 use Src\Domain\UserSession\IUserSession;
 use Src\Domain\UserSession\Properties\UserSessionCreatedAt\UserSessionCreatedAt;
-use Src\Domain\USerSession\Properties\UserSessionExpirationDate\UserSessionExpirationDate;
+use Src\Domain\UserSession\Properties\UserSessionExpirationDate\UserSessionExpirationDate;
 use Src\Domain\UserSession\Properties\UserSessionId\UserSessionId;
 use Src\Domain\UserSession\Properties\UserSessionStatus\IUserSessionStatus;
 use Src\Domain\UserSession\Properties\UserSessionStatus\UserSessionStatus;

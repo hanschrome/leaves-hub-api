@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserAccountRecoverySecretCode\Validators;
+namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\Validators;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserAccountRecoverySecretCodePropertyValidator implements IPropertyValidator
 {

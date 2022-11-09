@@ -6,7 +6,7 @@ namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\Va
 
 use Src\Domain\Properties\IProperty;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\UserAccountRecoveryStatus;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserAccountRecoveryStatusPropertyValidator implements IPropertyValidator
 {

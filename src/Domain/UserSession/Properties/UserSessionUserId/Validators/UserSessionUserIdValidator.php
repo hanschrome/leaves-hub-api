@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserSession\Properties\USerSessionUserId\Validators;
+namespace Src\Domain\UserSession\Properties\UserSessionUserId\Validators;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserSessionUserIdValidator implements IPropertyValidator
 {

@@ -6,7 +6,7 @@ namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\Va
 
 use Src\Domain\Properties\IProperty;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\UserAccountRecoveryMethod;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserAccountRecoveryMethodPropertyValidator implements IPropertyValidator
 {

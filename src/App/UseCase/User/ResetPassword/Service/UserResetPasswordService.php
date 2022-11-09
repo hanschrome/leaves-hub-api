@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace Src\App\UseCase\User\ResetPassword\Service;
 
 use Ramsey\Uuid\Uuid;
-use Src\App\UseCase\User\ResetPassword\ResetPasswordUserActionNotPossibleToResetPasswordException;
-use Src\Domain\Repositories\IUserRepository;
+use Src\App\UseCase\User\ResetPassword\Exception\ResetPasswordUserActionNotPossibleToResetPasswordException;
+use Src\Domain\User\Repositories\IUserRepository;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
 use Src\Domain\User\Services\ResetPassword\IUserResetPasswordService;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\UserAccountRecoveryCreatedAt;
-use Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate\UserAccountRecoveryDueDate;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryDueDate\UserAccountRecoveryDueDate;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\UserAccountRecoveryId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\UserAccountRecoveryMethod;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\UserAccountRecoverySecretCode;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\UserAccountRecoveryStatus;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\UserAccountRecoveryUpdatedAt;
 use Src\Domain\UserAccountRecovery\Repositories\IUserAccountRecoveryRepository;
-use Src\Domain\UserAccountRecovery\Repositories\UserAccountRecoveryException;
+use Src\Domain\UserAccountRecovery\Repositories\Exceptions\UserAccountRecoveryException;
 use Src\Domain\UserAccountRecovery\UserAccountRecovery;
 
 class UserResetPasswordService implements IUserResetPasswordService

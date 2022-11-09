@@ -6,7 +6,7 @@ namespace Src\Domain\UserSession\Properties\UserSessionStatus\Validators;
 
 use Src\Domain\Properties\IProperty;
 use Src\Domain\UserSession\Properties\UserSessionStatus\IUserSessionStatus;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserSessionStatusValidator implements IPropertyValidator
 {

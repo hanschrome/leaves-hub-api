@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\UserSession\Properties\USerSessionUserId\Validators;
+namespace Src\Domain\UserSession\Properties\UserSessionUserId\Validators;
 
-use Src\Domain\Validators\Exceptions\IPropertyException;
+use Src\Domain\Properties\Validators\Exceptions\IPropertyException;
 
 class UserSessionUserIdWrongUuidException extends \Exception implements IPropertyException
 {

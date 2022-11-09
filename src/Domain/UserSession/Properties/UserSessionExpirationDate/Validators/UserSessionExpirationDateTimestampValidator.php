@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserSession\Properties\UserSessionExpirationDate\Validators;
 
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeValidator;
 
 class UserSessionExpirationDateTimestampValidator extends TimestampPropertyRangeValidator
 {

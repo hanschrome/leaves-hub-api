@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Src\Domain\UserSession;
 
-use Src\Domain\User\Properties\IUserId;
+use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\UserSession\Properties\UserSessionCreatedAt\IUserSessionCreatedAt;
-use Src\Domain\USerSession\Properties\UserSessionExpirationDate\IUserSessionExpirationDate;
+use Src\Domain\UserSession\Properties\UserSessionExpirationDate\IUserSessionExpirationDate;
 use Src\Domain\UserSession\Properties\UserSessionId\IUserSessionId;
 use Src\Domain\UserSession\Properties\UserSessionStatus\IUserSessionStatus;
 use Src\Domain\UserSession\Properties\UserSessionUpdatedAt\IUserSessionUpdatedAt;

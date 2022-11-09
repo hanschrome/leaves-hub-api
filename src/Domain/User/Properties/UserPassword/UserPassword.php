@@ -6,7 +6,7 @@ namespace Src\Domain\User\Properties\UserPassword;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\User\Properties\UserPassword\Validators\UserPasswordHasPropertyValidator\UserPasswordHashPropertyValidator;
+use Src\Domain\User\Properties\UserPassword\Validators\UserPasswordHashPropertyValidator\UserPasswordHashPropertyValidator;
 
 class UserPassword extends AbstractProperty implements IProperty, IUserPassword
 {

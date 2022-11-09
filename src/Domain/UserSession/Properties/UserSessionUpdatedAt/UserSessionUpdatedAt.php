@@ -6,7 +6,7 @@ namespace Src\Domain\UserSession\Properties\UserSessionUpdatedAt;
 
 use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\USerSession\Properties\UserSessionUpdatedAt\Validators\UserSessionUpdateAtValidator;
+use Src\Domain\UserSession\Properties\UserSessionUpdatedAt\Validators\UserSessionUpdateAtValidator;
 
 class UserSessionUpdatedAt extends AbstractTimestampProperty implements IProperty, IUserSessionUpdatedAt
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\Properties\AbstractTimestamp;
+namespace Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator;
 
 use Exception;
-use Src\Domain\Validators\Exceptions\IPropertyException;
+use Src\Domain\Properties\Validators\Exceptions\IPropertyException;
 
 class TimestampPropertyRangeException extends Exception implements IPropertyException
 {

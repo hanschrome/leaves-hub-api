@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\Validators;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserAccountRecoveryStatusCreatedAtPropertyValidator implements IPropertyValidator
 {

@@ -7,21 +7,21 @@ namespace Src\Infrastructure\Repositories\User;
 use App\Models\UserEloquentModel;
 use Exception;
 use Ramsey\Uuid\Uuid;
-use Src\Domain\Repositories\IUserRepository;
+use Src\Domain\User\Repositories\IUserRepository;
 use Src\Domain\User\IUser;
-use Src\Domain\User\Properties\IUserId;
+use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\User\Properties\UserCreatedAt\UserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\UserVerifiedAt;
-use Src\Domain\User\Properties\UserId;
+use Src\Domain\User\Properties\UserId\UserId;
 use Src\Domain\User\Properties\UserPassword\IUserPassword;
 use Src\Domain\User\Properties\UserPassword\UserPassword;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
 use Src\Domain\User\Properties\UserUpdatedAt\UserUpdatedAt;
 use Src\Domain\User\Properties\UserVerifyToken\UserVerifyToken;
 use Src\Domain\User\User;
-use Src\Infrastructure\Repositories\User\Exceptions\UserNotSavedException\UserNotSavedException;
+use Src\Infrastructure\Repositories\User\Exceptions\UserNotSavedException;
 
 class UserEloquentRepository implements IUserRepository
 {

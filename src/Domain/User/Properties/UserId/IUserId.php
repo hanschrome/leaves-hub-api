@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\User\Properties;
+namespace Src\Domain\User\Properties\UserId;
 
 interface IUserId
 {

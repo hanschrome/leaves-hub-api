@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Domain\User\Properties\Validators;
+namespace Src\Domain\User\Properties\UserId\Validators\Uuid;
 
-use Src\Domain\Validators\Exceptions\IPropertyException;
+use Src\Domain\Properties\Validators\Exceptions\IPropertyException;
 
 class UserIdPropertyWrongFormatException extends \Exception implements IPropertyException
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Src\App;
+namespace Src\App\UseCase\User\Registration\Action;
 
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionNotVerifiedUserIntentException;
 use Src\App\UseCase\User\Registration\Exception\RegisterUserActionVerifiedUserIntentException;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
-use Src\Domain\User\Services\IUserRegistrationService;
-use Src\Infrastructure\Api\Response\IResponse;
-use Src\Infrastructure\Api\Response\Register\RegisterUserErrorResponse;
-use Src\Infrastructure\Api\Response\RegisterUserResponse;
+use Src\Domain\User\Services\Registration\IUserRegistrationService;
 use Exception;
+use Src\Infrastructure\Api\User\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\Register\RegisterUserErrorResponse;
+use Src\Infrastructure\Api\User\Response\Register\RegisterUserResponse;
 use Throwable;
 
 class RegisterUserAction

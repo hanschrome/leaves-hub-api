@@ -6,7 +6,7 @@ namespace Src\Domain\UserSession\Properties\UserSessionUserId;
 
 use Src\Domain\Properties\AbstractProperty;
 use Src\Domain\Properties\IProperty;
-use Src\Domain\UserSession\Properties\USerSessionUserId\Validators\UserSessionUserIdValidator;
+use Src\Domain\UserSession\Properties\UserSessionUserId\Validators\UserSessionUserIdValidator;
 
 class UserSessionUserId extends AbstractProperty implements IProperty, IUserSessionUserId
 {

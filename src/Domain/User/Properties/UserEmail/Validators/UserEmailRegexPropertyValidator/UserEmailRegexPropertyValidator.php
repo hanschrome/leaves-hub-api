@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Src\Domain\User\Properties\UserEmail\Validators\UserEmailRegexPropertyValidator;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserEmailRegexPropertyValidator implements IPropertyValidator
 {

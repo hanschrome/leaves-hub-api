@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Domain\User\Properties\UserCreatedAt\Validators;
 
-use Src\Domain\Properties\AbstractTimestamp\TimestampPropertyRangeValidator;
+use Src\Domain\Properties\AbstractTimestamp\Validators\TimestampPropertyRangeValidator\TimestampPropertyRangeValidator;
 
 class UserCreatedAtTimestampPropertyValidator extends TimestampPropertyRangeValidator
 {

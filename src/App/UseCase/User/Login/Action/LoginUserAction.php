@@ -10,9 +10,9 @@ use Src\Domain\User\Properties\UserEmail\UserEmail;
 use Src\Domain\User\Properties\UserPassword\UserPassword;
 use Src\Domain\User\Services\Login\IUserLoginService;
 use Src\Domain\UserSession\Services\Login\IUserSessionLoginService;
-use Src\Infrastructure\Api\Response\IResponse;
-use Src\Infrastructure\Api\Response\Login\LoginSuccessUserResponse;
-use Src\Infrastructure\Api\Response\Login\LoginWrongUserResponse;
+use Src\Infrastructure\Api\User\Response\IResponse;
+use Src\Infrastructure\Api\User\Response\Login\LoginSuccessUserResponse;
+use Src\Infrastructure\Api\User\Response\Login\LoginWrongUserResponse;
 
 class LoginUserAction
 {

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Src\Infrastructure\Repositories\UserAccountRecovery;
 
 use App\Models\UserAccountRecoveryEloquentModel;
-use Src\Domain\User\Properties\UserId;
+use Src\Domain\User\Properties\UserId\UserId;
 use Src\Domain\UserAccountRecovery\IUserAccountRecovery;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryCreatedAt\UserAccountRecoveryCreatedAt;
-use Src\Domain\UserACcountRecovery\Properties\UserAccountRecoveryDueDate\UserAccountRecoveryDueDate;
+use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryDueDate\UserAccountRecoveryDueDate;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\IUserAccountRecoveryId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryId\UserAccountRecoveryId;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryMethod\UserAccountRecoveryMethod;
@@ -16,7 +16,7 @@ use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoverySecretCode\User
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryStatus\UserAccountRecoveryStatus;
 use Src\Domain\UserAccountRecovery\Properties\UserAccountRecoveryUpdatedAt\UserAccountRecoveryUpdatedAt;
 use Src\Domain\UserAccountRecovery\Repositories\IUserAccountRecoveryRepository;
-use Src\Domain\UserAccountRecovery\Repositories\UserAccountRecoveryException;
+use Src\Domain\UserAccountRecovery\Repositories\Exceptions\UserAccountRecoveryException;
 use Src\Domain\UserAccountRecovery\UserAccountRecovery;
 
 class UserAccountRecoveryEloquentRepository implements IUserAccountRecoveryRepository

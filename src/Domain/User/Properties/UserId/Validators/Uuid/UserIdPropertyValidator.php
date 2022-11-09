@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Domain\User\Properties\Validators;
+namespace Src\Domain\User\Properties\UserId\Validators\Uuid;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserIdPropertyValidator implements IPropertyValidator
 {

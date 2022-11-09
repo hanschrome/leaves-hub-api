@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\User\Properties\UserPassword\Validators\UserPasswordHasPropertyValidator;
+namespace Src\Domain\User\Properties\UserPassword\Validators\UserPasswordHashPropertyValidator;
 
 use Src\Domain\Properties\IProperty;
-use Src\Domain\Validators\IPropertyValidator;
+use Src\Domain\Properties\Validators\IPropertyValidator;
 
 class UserPasswordHashPropertyValidator implements IPropertyValidator
 {
