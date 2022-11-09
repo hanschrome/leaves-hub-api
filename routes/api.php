@@ -56,7 +56,7 @@ Route::post('/v1/user-access/register', function (Request $request) {
         )
     );
 
-    return $registerUserAction($request->json())->toArray();
+    return $registerUserAction($request->toArray())->toArray();
 });
 
 Route::post('/v1/user-access/login', function (Request $request) {
