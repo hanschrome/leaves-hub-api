@@ -25,3 +25,5 @@ feature-tests:
 	docker compose exec -it php-fpm php vendor/bin/phpunit tests/Feature
 firefox:
 	docker compose up -d firefox || docker-compose down firefox
+testing:
+	docker compose exec -it php-fpm php vendor/bin/phpunit tests/
