@@ -32,9 +32,11 @@ class UserRegistrationService implements IUserRegistrationService
      */
     public function registerUserByEmail(IUserEmail $userEmail): void
     {
-        $user = $this->userRepository->findUserByEmail($userEmail);
+        $userExists = $this->userRepository->existsUserByEmail($userEmail);
 
-        if ($user !== null) {
+        if ($userExists) {
+            $user = $this->userRepository->findUserByEmail($userEmail);
+
             if ($user->getVerifiedAt() !== null) {
                 throw new RegisterUserActionVerifiedUserIntentException();
             } else {

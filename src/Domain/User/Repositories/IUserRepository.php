@@ -17,6 +17,8 @@ interface IUserRepository
 
     public function findUserByEmailAndPassword(IUserEmail $userEmail, IUserPassword $userPassword): ? IUser;
 
+    public function existsUserByEmail(IUserEmail $userEmail): bool;
+
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser;
 
     public function updateUser(IUser $user): void;

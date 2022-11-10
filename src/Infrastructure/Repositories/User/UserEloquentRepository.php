@@ -45,7 +45,7 @@ class UserEloquentRepository implements IUserRepository
     public function findUserByEmail(IUserEmail $userEmail): IUser
     {
         /** @var UserEloquentModel $eloquentUser */
-        $eloquentUser = UserEloquentModel::all(['email' => $userEmail->value()])->first();
+        $eloquentUser = UserEloquentModel::all()->where('email', '=', $userEmail->value())->first();
 
         return new User(
             new UserId($eloquentUser->uuid),
@@ -76,20 +76,36 @@ class UserEloquentRepository implements IUserRepository
         );
     }
 
+    public function existsUserByEmail(IUserEmail $userEmail): bool
+    {
+        /** @var UserEloquentModel $eloquentUser */
+        $eloquentUser = UserEloquentModel::all()->where('email', '=', $userEmail->value())->first();
+
+        return $eloquentUser !== null;
+    }
+
     /**
      * @throws Exception
      */
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
+        $userId = new UserId(Uuid::uuid4()->toString());
+        $userVerifiedAt = new UserVerifiedAt();
+        $userStatus = new UserStatus(UserStatus::UNSIGNED);
+        $userPassword = new UserPassword('');
+        $userVerifyToken = new UserVerifyToken(Uuid::uuid4()->toString());
+        $userUpdatedAt = new UserUpdatedAt(now()->timestamp);
+        $userCreatedAt = new UserCreatedAt(now()->timestamp);
+
         $user = new User(
-            new UserId(Uuid::uuid4()->toString()),
+            $userId,
             $userEmail,
-            new UserVerifiedAt(),
-            new UserStatus(UserStatus::UNSIGNED),
-            new UserPassword(''),
-            new UserVerifyToken(Uuid::uuid4()->toString()),
-            new UserUpdatedAt(now()->timestamp),
-            new UserCreatedAt(now()->timestamp)
+            $userVerifiedAt,
+            $userStatus,
+            $userPassword,
+            $userVerifyToken,
+            $userUpdatedAt,
+            $userCreatedAt
         );
 
         $userEloquent = new UserEloquentModel();
