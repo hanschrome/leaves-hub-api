@@ -38,3 +38,12 @@ In case of storage permission issues:
 
 - Docker
 - Docker Compose
+
+
+## @todo
+
+- Move to Shared kernel shared entities.
+- Mobe "src" to a bounded context so app is scalable and meaningful
+- Better flow in github actions for testing purposes
+- More unit tests plz
+- All use cases are covered for testing
