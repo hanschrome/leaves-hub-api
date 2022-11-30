@@ -54,8 +54,8 @@ class UserEloquentRepository implements IUserRepository
             new UserStatus($eloquentUser->status),
             new UserPassword($eloquentUser->password),
             new UserVerifyToken($eloquentUser->verify_token),
-            new UserUpdatedAt($eloquentUser->updated_at),
-            new UserCreatedAt($eloquentUser->created_at)
+            new UserUpdatedAt($eloquentUser->updated_at->timestamp),
+            new UserCreatedAt($eloquentUser->created_at->timestamp)
         );
     }
 

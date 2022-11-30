@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -15,8 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property ?int $email_verified_at
  * @property ?string $password
  * @property ?string verify_token
- * @property int $updated_at;
- * @property int $created_at;
+ * @property int|Carbon $updated_at;
+ * @property int|Carbon $created_at;
  */
 class UserEloquentModel extends Model
 {
