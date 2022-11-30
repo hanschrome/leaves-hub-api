@@ -18,7 +18,21 @@ In case of storage permission issues:
 
 ## Running tests
 
-```make unit-tests```
+1. Start the application for testing purposes
+
+```make up-for-testing```
+
+2. Prepare the database for the feature tests
+
+```make regenerate-testing```
+
+3. Run tests
+
+```make testing```
+
+4. To run again tests, restore the testing database
+
+```make regenerate-testing && make testing```
 
 ## Dependencies
 
