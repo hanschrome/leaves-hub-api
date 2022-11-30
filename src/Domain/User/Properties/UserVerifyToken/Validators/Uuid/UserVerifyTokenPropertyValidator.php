@@ -21,7 +21,7 @@ class UserVerifyTokenPropertyValidator implements IPropertyValidator
      */
     public function validate(): void
     {
-        if (!is_string($this->property)) {
+        if (!is_string($this->property->value())) {
             throw new UserVerifyTokenPropertyWrongFormatException();
         }
     }

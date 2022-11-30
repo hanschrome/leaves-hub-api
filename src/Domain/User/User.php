@@ -7,7 +7,7 @@ namespace Src\Domain\User;
 use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\User\Properties\UserCreatedAt\IUserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
-use Src\Domain\User\Properties\UserEmailVerifiedAt\IUserVerifiedAt;
+use Src\Domain\User\Properties\UserEmailVerifiedAt\IUserEmailVerifiedAt;
 use Src\Domain\User\Properties\UserPassword\IUserPassword;
 use Src\Domain\User\Properties\UserStatus\IUserStatus;
 use Src\Domain\User\Properties\UserUpdatedAt\IUserUpdatedAt;
@@ -17,21 +17,21 @@ class User implements IUser
 {
     private IUserId $id;
     private IUserEmail $email;
-    private IUserVerifiedAt $verifiedAt;
+    private IUserEmailVerifiedAt $verifiedAt;
     private IUserStatus $status;
     private IUserPassword $password;
     private IUserVerifyToken $verifyToken;
     private IUserUpdatedAt $updatedAt;
     private IUserCreatedAt $createdAt;
 
-    public function __construct(IUserId          $userId,
-                                IUserEmail       $userEmail,
-                                IUserVerifiedAt  $emailVerifiedAt,
-                                IUserStatus      $userStatus,
-                                IUserPassword    $userPassword,
-                                IUserVerifyToken $userVerifyToken,
-                                IUserUpdatedAt   $userUpdatedAt,
-                                IUserCreatedAt   $userCreatedAt)
+    public function __construct(IUserId              $userId,
+                                IUserEmail           $userEmail,
+                                IUserEmailVerifiedAt $emailVerifiedAt,
+                                IUserStatus          $userStatus,
+                                IUserPassword        $userPassword,
+                                IUserVerifyToken     $userVerifyToken,
+                                IUserUpdatedAt       $userUpdatedAt,
+                                IUserCreatedAt       $userCreatedAt)
     {
         $this->id = $userId;
         $this->email = $userEmail;
@@ -53,7 +53,7 @@ class User implements IUser
         return $this->email;
     }
 
-    public function getVerifiedAt(): IUserVerifiedAt
+    public function getVerifiedAt(): IUserEmailVerifiedAt
     {
         return $this->verifiedAt;
     }

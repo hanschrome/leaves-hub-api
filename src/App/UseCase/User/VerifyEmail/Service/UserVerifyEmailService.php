@@ -7,7 +7,7 @@ namespace Src\App\UseCase\User\VerifyEmail\Service;
 use Src\App\UseCase\User\VerifyEmail\Exception\VerifyEmailActionWrongTokenException;
 use Src\Domain\User\Repositories\IUserRepository;
 use Src\Domain\User\Properties\UserId\IUserId;
-use Src\Domain\User\Properties\UserEmailVerifiedAt\UserVerifiedAt;
+use Src\Domain\User\Properties\UserEmailVerifiedAt\UserEmailVerifiedAt;
 use Src\Domain\User\Properties\UserStatus\UserStatus;
 use Src\Domain\User\Properties\UserVerifyToken\IUserVerifyToken;
 use Src\Domain\User\Services\VerifyEmail\IUserVerifyEmailService;
@@ -36,7 +36,7 @@ class UserVerifyEmailService implements IUserVerifyEmailService
         $newUser = new User(
             $user->getId(),
             $user->getEmail(),
-            new UserVerifiedAt(time()),
+            new UserEmailVerifiedAt(time()),
             new UserStatus(UserStatus::ACTIVE),
             $user->getPassword(),
             $user->getVerifyToken(),

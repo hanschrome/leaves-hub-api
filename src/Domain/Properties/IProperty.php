@@ -8,5 +8,5 @@ interface IProperty
 
     public function validate(): void;
 
-    public function value(): mixed;
+    public function value();
 }

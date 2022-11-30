@@ -8,5 +8,5 @@ interface ITimestampProperty
 {
     public function __construct(?int $timestamp);
 
-    public function value(): ?int;
+    public function value();
 }

@@ -22,7 +22,7 @@ class RegisterTest extends TestCase
     public function registerProvider(): array
     {
         return [
-            ['email' => 'testmail@gmail.com', 'expected' => ['error_code' => null, 'is_success' => 'true']]
+            ['email' => 'testmail@gmail.com', 'expected' => ['error_code' => null, 'is_success' => true]]
         ];
     }
 }

@@ -13,7 +13,7 @@ use Src\Domain\User\Properties\UserId\IUserId;
 use Src\Domain\User\Properties\UserCreatedAt\UserCreatedAt;
 use Src\Domain\User\Properties\UserEmail\IUserEmail;
 use Src\Domain\User\Properties\UserEmail\UserEmail;
-use Src\Domain\User\Properties\UserEmailVerifiedAt\UserVerifiedAt;
+use Src\Domain\User\Properties\UserEmailVerifiedAt\UserEmailVerifiedAt;
 use Src\Domain\User\Properties\UserId\UserId;
 use Src\Domain\User\Properties\UserPassword\IUserPassword;
 use Src\Domain\User\Properties\UserPassword\UserPassword;
@@ -33,7 +33,7 @@ class UserEloquentRepository implements IUserRepository
         return new User(
             new UserId($eloquentUser->uuid),
             new UserEmail($eloquentUser->email),
-            new UserVerifiedAt($eloquentUser->email_verified_at),
+            new UserEmailVerifiedAt($eloquentUser->email_verified_at),
             new UserStatus($eloquentUser->status),
             new UserPassword($eloquentUser->password),
             new UserVerifyToken($eloquentUser->verify_token),
@@ -50,7 +50,7 @@ class UserEloquentRepository implements IUserRepository
         return new User(
             new UserId($eloquentUser->uuid),
             new UserEmail($eloquentUser->email),
-            new UserVerifiedAt($eloquentUser->email_verified_at),
+            new UserEmailVerifiedAt($eloquentUser->email_verified_at),
             new UserStatus($eloquentUser->status),
             new UserPassword($eloquentUser->password),
             new UserVerifyToken($eloquentUser->verify_token),
@@ -67,7 +67,7 @@ class UserEloquentRepository implements IUserRepository
         return new User(
             new UserId($eloquentUser->uuid),
             new UserEmail($eloquentUser->email),
-            new UserVerifiedAt($eloquentUser->email_verified_at),
+            new UserEmailVerifiedAt($eloquentUser->email_verified_at),
             new UserStatus($eloquentUser->status),
             new UserPassword($eloquentUser->password),
             new UserVerifyToken($eloquentUser->verify_token),
@@ -90,7 +90,7 @@ class UserEloquentRepository implements IUserRepository
     public function createUnsignedUserByEmail(IUserEmail $userEmail): IUser
     {
         $userId = new UserId(Uuid::uuid4()->toString());
-        $userVerifiedAt = new UserVerifiedAt();
+        $userVerifiedAt = new UserEmailVerifiedAt();
         $userStatus = new UserStatus(UserStatus::UNSIGNED);
         $userPassword = new UserPassword('');
         $userVerifyToken = new UserVerifyToken(Uuid::uuid4()->toString());

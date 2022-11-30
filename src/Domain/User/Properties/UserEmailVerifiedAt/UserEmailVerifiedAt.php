@@ -8,7 +8,7 @@ use Src\Domain\Properties\AbstractTimestamp\AbstractTimestampProperty;
 use Src\Domain\Properties\IProperty;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\Validators\UserVerifiedAtTimestampPropertyValidator\UserVerifiedAtTimestampPropertyValidator;
 
-class UserVerifiedAt extends AbstractTimestampProperty implements IProperty, IUserVerifiedAt
+class UserEmailVerifiedAt extends AbstractTimestampProperty implements IProperty, IUserEmailVerifiedAt
 {
     private ?int $userVerifiedAt;
 

@@ -21,7 +21,7 @@ class UserAccountRecoveryStatusCreatedAtPropertyValidator implements IPropertyVa
      */
     public function validate(): void
     {
-        if ($this->property->value() <= 0 || $this->property->value() > now()) {
+        if ($this->property->value() <= 0 || $this->property->value() > now()->timestamp) {
             throw new UserAccountRecoveryStatusCreatedAtPropertyRangeException(
                 'Property ' . get_class($this->property) . ' is out of range: (' . $this->property->value() . ')'
             );

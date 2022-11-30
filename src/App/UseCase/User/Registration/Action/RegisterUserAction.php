@@ -48,6 +48,9 @@ class RegisterUserAction
                 false
             );
         } catch (Throwable $throwable) {
+            echo 'ERROR';
+            var_dump($throwable);
+            die();
             $response = new RegisterUserErrorResponse(
                 500,
                 RegisterUserErrorResponse::KEY_RESPONSE_INTERNAL_ERROR,
