@@ -28,4 +28,13 @@ class UserEmailDataProviderTest
             ['email@@correo.com'],
         ];
     }
+
+    public function test_sanitize_value(): array
+    {
+        return [
+            ['expected' => 'email@email.com', 'value' => ' email@email.com'],
+            ['expected' => 'email@email.com', 'value' => ' email@email.com '],
+            ['expected' => 'email@email.com', 'value' => ' email@email.cOM '],
+        ];
+    }
 }

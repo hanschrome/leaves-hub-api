@@ -29,4 +29,14 @@ class UserEmailTest extends TestCase
 
         new UserEmail($value);
     }
+
+    /**
+     * @dataProvider Tests\Unit\src\Domain\User\Properties\UserEmail\UserEmailDataProviderTest::test_sanitize_value
+     */
+    public function test_sanitize_values(string $expected, string $value): void
+    {
+        $sut = new UserEmail($value);
+
+        $this->assertEquals($expected, $sut->value());
+    }
 }
