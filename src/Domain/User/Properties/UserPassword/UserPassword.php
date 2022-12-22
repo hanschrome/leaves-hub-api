@@ -14,7 +14,7 @@ class UserPassword extends AbstractProperty implements IProperty, IUserPassword
 
     public function __construct(string $password)
     {
-        $this->password = $password; // @todo cipher password
+        $this->password = hash('sha512', $password);
         $this->sanitize();
         $this->validate();
     }
