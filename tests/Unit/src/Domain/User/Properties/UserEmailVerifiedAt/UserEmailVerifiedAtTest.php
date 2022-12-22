@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\src\Domain\User\Properties\UserVerifiedAt;
+namespace Tests\Unit\src\Domain\User\Properties\UserEmailVerifiedAt;
 
 use Src\Domain\User\Properties\UserEmailVerifiedAt\UserEmailVerifiedAt;
 use Src\Domain\User\Properties\UserEmailVerifiedAt\Validators\UserVerifiedAtTimestampPropertyValidator\UserVerifiedAtTimestampPropertyWrongRangeException;

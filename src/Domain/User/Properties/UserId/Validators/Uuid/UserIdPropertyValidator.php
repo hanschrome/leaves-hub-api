@@ -19,7 +19,7 @@ class UserIdPropertyValidator implements IPropertyValidator
      */
     public function validate(): void
     {
-        if (!is_string($this->property->value())) {
+        if (!is_string($this->property->value()) || strlen($this->property->value()) != 36) {
             throw new UserIdPropertyWrongFormatException();
         }
     }

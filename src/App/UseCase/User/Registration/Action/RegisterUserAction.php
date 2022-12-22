@@ -35,22 +35,20 @@ class RegisterUserAction
 
         try {
             $this->iUserRegistrationService->registerUserByEmail(new UserEmail($emailRawRequest));
+             // queue event for mail
         } catch (RegisterUserActionNotVerifiedUserIntentException $exception) { // @todo log this exceptions in Sentry
             $response = new RegisterUserErrorResponse(
-                200,
+                401,
                 RegisterUserErrorResponse::KEY_RESPONSE_NOT_VERIFIED_USER_INTENT,
                 false
             );
         } catch (RegisterUserActionVerifiedUserIntentException $exception) {
             $response = new RegisterUserErrorResponse(
-                200,
+                401,
                 RegisterUserErrorResponse::KEY_RESPONSE_VERIFIED_USER_INTENT,
                 false
             );
         } catch (Throwable $throwable) {
-            echo 'ERROR';
-            var_dump($throwable);
-            die();
             $response = new RegisterUserErrorResponse(
                 500,
                 RegisterUserErrorResponse::KEY_RESPONSE_INTERNAL_ERROR,
