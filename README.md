@@ -18,21 +18,13 @@ In case of storage permission issues:
 
 ## Running tests
 
-1. Start the application for testing purposes
+1. Start the application for testing purposes (Wait ~20 seconds to let mysql start)
 
 ```make up-for-testing```
 
-2. Prepare the database for the feature tests
-
-```make regenerate-testing```
-
-3. Run tests
+2. Run tests (It will regenerate database)
 
 ```make testing```
-
-4. To run again tests, restore the testing database
-
-```make regenerate-testing && make testing```
 
 ## Dependencies
 

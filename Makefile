@@ -15,9 +15,8 @@ up-for-testing:
 	docker compose up -d mysql-testing
 	docker compose run -d firefox firefox http://10.6.0.8
 	docker compose up -d php-fpm
-regenerate-testing:
+testing:
 	docker compose exec -it mysql-testing mysql -uroot -proot -e "drop database laravel;" || echo "Not existing database..."
 	docker compose exec -it mysql-testing mysql -uroot -proot -e "create database laravel;"
 	docker compose exec -it php-fpm php artisan migrate
-testing:
 	docker compose exec -it php-fpm php vendor/bin/phpunit tests
